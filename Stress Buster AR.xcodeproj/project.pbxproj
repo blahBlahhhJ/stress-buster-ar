@@ -1,0 +1,367 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D4BF8C54244CF1E2000AC3D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C53244CF1E2000AC3D9 /* AppDelegate.swift */; };
+		D4BF8C58244CF1E2000AC3D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C57244CF1E2000AC3D9 /* ViewController.swift */; };
+		D4BF8C5B244CF1E2000AC3D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BF8C59244CF1E2000AC3D9 /* Main.storyboard */; };
+		D4BF8C5D244CF1E3000AC3D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BF8C5C244CF1E3000AC3D9 /* Assets.xcassets */; };
+		D4BF8C60244CF1E3000AC3D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BF8C5E244CF1E3000AC3D9 /* LaunchScreen.storyboard */; };
+		D4BF8C6E244CFAE4000AC3D9 /* PlaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C6D244CFAE4000AC3D9 /* PlaneNode.swift */; };
+		D4BF8C70244CFAFF000AC3D9 /* FootNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C6F244CFAFF000AC3D9 /* FootNode.swift */; };
+		D4BF8C72244CFB42000AC3D9 /* SpotlightNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C71244CFB42000AC3D9 /* SpotlightNode.swift */; };
+		D4BF8C74244CFC6D000AC3D9 /* BallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C73244CFC6D000AC3D9 /* BallNode.swift */; };
+		D4BF8C76244D25D9000AC3D9 /* FootModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C75244D25D9000AC3D9 /* FootModel.mlmodel */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D4BF8C50244CF1E2000AC3D9 /* Stress Buster AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stress Buster AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BF8C53244CF1E2000AC3D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D4BF8C57244CF1E2000AC3D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4BF8C5A244CF1E2000AC3D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D4BF8C5C244CF1E3000AC3D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4BF8C5F244CF1E3000AC3D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D4BF8C61244CF1E3000AC3D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4BF8C6D244CFAE4000AC3D9 /* PlaneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneNode.swift; sourceTree = "<group>"; };
+		D4BF8C6F244CFAFF000AC3D9 /* FootNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootNode.swift; sourceTree = "<group>"; };
+		D4BF8C71244CFB42000AC3D9 /* SpotlightNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightNode.swift; sourceTree = "<group>"; };
+		D4BF8C73244CFC6D000AC3D9 /* BallNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallNode.swift; sourceTree = "<group>"; };
+		D4BF8C75244D25D9000AC3D9 /* FootModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FootModel.mlmodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4BF8C4D244CF1E2000AC3D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4BF8C47244CF1E2000AC3D9 = {
+			isa = PBXGroup;
+			children = (
+				D4BF8C52244CF1E2000AC3D9 /* Stress Buster AR */,
+				D4BF8C51244CF1E2000AC3D9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4BF8C51244CF1E2000AC3D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4BF8C50244CF1E2000AC3D9 /* Stress Buster AR.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4BF8C52244CF1E2000AC3D9 /* Stress Buster AR */ = {
+			isa = PBXGroup;
+			children = (
+				D4BF8C75244D25D9000AC3D9 /* FootModel.mlmodel */,
+				D4BF8C67244CF44B000AC3D9 /* Nodes */,
+				D4BF8C53244CF1E2000AC3D9 /* AppDelegate.swift */,
+				D4BF8C57244CF1E2000AC3D9 /* ViewController.swift */,
+				D4BF8C59244CF1E2000AC3D9 /* Main.storyboard */,
+				D4BF8C5C244CF1E3000AC3D9 /* Assets.xcassets */,
+				D4BF8C5E244CF1E3000AC3D9 /* LaunchScreen.storyboard */,
+				D4BF8C61244CF1E3000AC3D9 /* Info.plist */,
+			);
+			path = "Stress Buster AR";
+			sourceTree = "<group>";
+		};
+		D4BF8C67244CF44B000AC3D9 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				D4BF8C6D244CFAE4000AC3D9 /* PlaneNode.swift */,
+				D4BF8C6F244CFAFF000AC3D9 /* FootNode.swift */,
+				D4BF8C71244CFB42000AC3D9 /* SpotlightNode.swift */,
+				D4BF8C73244CFC6D000AC3D9 /* BallNode.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4BF8C4F244CF1E2000AC3D9 /* Stress Buster AR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4BF8C64244CF1E3000AC3D9 /* Build configuration list for PBXNativeTarget "Stress Buster AR" */;
+			buildPhases = (
+				D4BF8C4C244CF1E2000AC3D9 /* Sources */,
+				D4BF8C4D244CF1E2000AC3D9 /* Frameworks */,
+				D4BF8C4E244CF1E2000AC3D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Stress Buster AR";
+			productName = "Stress Buster AR";
+			productReference = D4BF8C50244CF1E2000AC3D9 /* Stress Buster AR.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4BF8C48244CF1E2000AC3D9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Jason Wang";
+				TargetAttributes = {
+					D4BF8C4F244CF1E2000AC3D9 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = D4BF8C4B244CF1E2000AC3D9 /* Build configuration list for PBXProject "Stress Buster AR" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4BF8C47244CF1E2000AC3D9;
+			productRefGroup = D4BF8C51244CF1E2000AC3D9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4BF8C4F244CF1E2000AC3D9 /* Stress Buster AR */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4BF8C4E244CF1E2000AC3D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4BF8C60244CF1E3000AC3D9 /* LaunchScreen.storyboard in Resources */,
+				D4BF8C5D244CF1E3000AC3D9 /* Assets.xcassets in Resources */,
+				D4BF8C5B244CF1E2000AC3D9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4BF8C4C244CF1E2000AC3D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4BF8C58244CF1E2000AC3D9 /* ViewController.swift in Sources */,
+				D4BF8C76244D25D9000AC3D9 /* FootModel.mlmodel in Sources */,
+				D4BF8C54244CF1E2000AC3D9 /* AppDelegate.swift in Sources */,
+				D4BF8C74244CFC6D000AC3D9 /* BallNode.swift in Sources */,
+				D4BF8C6E244CFAE4000AC3D9 /* PlaneNode.swift in Sources */,
+				D4BF8C72244CFB42000AC3D9 /* SpotlightNode.swift in Sources */,
+				D4BF8C70244CFAFF000AC3D9 /* FootNode.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D4BF8C59244CF1E2000AC3D9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4BF8C5A244CF1E2000AC3D9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D4BF8C5E244CF1E3000AC3D9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4BF8C5F244CF1E3000AC3D9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4BF8C62244CF1E3000AC3D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D4BF8C63244CF1E3000AC3D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4BF8C65244CF1E3000AC3D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HN63PVC5XZ;
+				INFOPLIST_FILE = "Stress Buster AR/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "blabla.Stress-Buster-AR";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4BF8C66244CF1E3000AC3D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HN63PVC5XZ;
+				INFOPLIST_FILE = "Stress Buster AR/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "blabla.Stress-Buster-AR";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4BF8C4B244CF1E2000AC3D9 /* Build configuration list for PBXProject "Stress Buster AR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4BF8C62244CF1E3000AC3D9 /* Debug */,
+				D4BF8C63244CF1E3000AC3D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4BF8C64244CF1E3000AC3D9 /* Build configuration list for PBXNativeTarget "Stress Buster AR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4BF8C65244CF1E3000AC3D9 /* Debug */,
+				D4BF8C66244CF1E3000AC3D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4BF8C48244CF1E2000AC3D9 /* Project object */;
+}
