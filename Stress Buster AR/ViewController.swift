@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     }
     
     func setUpVision() {
-        guard let model = try? VNCoreMLModel(for: FootModel().model) else {
+        guard let model = try? VNCoreMLModel(for: YOLO().model) else {
             fatalError("can't load model")
         }
         let request = VNCoreMLRequest(model: model) { request, error in
@@ -139,6 +139,25 @@ class ViewController: UIViewController {
     }
 }
 
+public func exifOrientationFromDeviceOrientation() -> CGImagePropertyOrientation {
+    let curDeviceOrientation = UIDevice.current.orientation
+    let exifOrientation: CGImagePropertyOrientation
+
+    switch curDeviceOrientation {
+    case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
+        exifOrientation = .left
+    case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
+        exifOrientation = .up
+    case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
+        exifOrientation = .down
+    case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
+        exifOrientation = .right
+    default:
+        exifOrientation = .up
+    }
+    return exifOrientation
+}
+
 // MARK: ARSessionDelegate
 extension ViewController: ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
@@ -147,7 +166,8 @@ extension ViewController: ARSessionDelegate {
         }
         currentBuffer = frame.capturedImage
         // fix
-        let handler = VNImageRequestHandler(cvPixelBuffer: currentBuffer!, orientation: .right)
+        let orientation = exifOrientationFromDeviceOrientation()
+        let handler = VNImageRequestHandler(cvPixelBuffer: currentBuffer!, orientation: orientation)
         do {
             try handler.perform(self.requests)
             debugTextView.text = debugText
