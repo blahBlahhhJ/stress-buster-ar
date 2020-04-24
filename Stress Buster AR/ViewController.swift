@@ -15,17 +15,11 @@ import Vision
 class ViewController: UIViewController {
 
     @IBOutlet weak var sceneView: ARSCNView!
-    @IBOutlet weak var debugTextView: UITextView!
     @IBOutlet weak var debugImageView: UIImageView!
     
     var footNode = FootNode()
-    
+    let footDetector = FootDetector()
     var currentBuffer: CVPixelBuffer?
-    private let visionQueue = DispatchQueue(label: "vision")
-    private var requests = [VNRequest]()
-    
-    private var debugText = "none"
-    private var debugImage = UIImage()
     
     private var width = Int(UIScreen.main.bounds.width)
     private var height = Int(UIScreen.main.bounds.height)
@@ -48,8 +42,7 @@ class ViewController: UIViewController {
         sceneView.scene.rootNode.addChildNode(spotlightNode)
         sceneView.scene.rootNode.addChildNode(footNode)
         
-        setUpVision()
-        
+        footDetector.setUpVision()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,50 +63,11 @@ class ViewController: UIViewController {
         sceneView.session.pause()
     }
     
-    func setUpVision() {
-        guard let model = try? VNCoreMLModel(for: FootSeg().model) else {
-            fatalError("can't load model")
-        }
-        let request = VNCoreMLRequest(model: model) { request, error in
-            //main thread
-            DispatchQueue.main.async {
-                self.handleDetection(request: request, error: error)
-                self.currentBuffer = nil
-            }
-        }
-        request.imageCropAndScaleOption = .scaleFill
-        requests = [request]
-    }
-    
-    func handleDetection(request: VNRequest, error: Error?) {
-        guard let results = request.results, !results.isEmpty else {
-            debugText = "none"
-            return
-        }
-//        guard let obs = results.first as? VNRecognizedObjectObservation else {
-//            return
-//        }
-        guard let obs = results.first as? VNPixelBufferObservation else {
-            return
-        }
-        width = Int(debugImageView.bounds.width)
-        height = Int(debugImageView.bounds.height)
-        debugImage = UIImage(ciImage: CIImage(cvPixelBuffer: obs.pixelBuffer))
-//        let bbox = VNImageRectForNormalizedRect(obs.boundingBox, width, height)
-//        let label = obs.labels[0]
-        
-//        debugImage = drawRectangle(box: bbox)
-//        debugText = label.identifier
-        
-//        let hitTestResults = self.sceneView.hitTest(CGPoint(x: bbox.midX, y: CGFloat(height) - bbox.midY), types: .existingPlaneUsingExtent)
-//        guard let hitTestRes = hitTestResults.first else {
-//            return
-//        }
-//        self.footNode.simdTransform = hitTestRes.worldTransform
-//        self.footNode.position.y += 0.05
-//        self.footNode.isHidden = false
-    }
-    
+    /**
+     Listener for tap events.
+     Creates a ball node in the tap position.
+     Just for test.
+     */
     @objc func viewDidTap(recognizer: UITapGestureRecognizer) {
         let tapLoc = recognizer.location(in: sceneView)
         let hitTestResults = sceneView.hitTest(tapLoc, types: .existingPlaneUsingExtent)
@@ -128,59 +82,70 @@ class ViewController: UIViewController {
         sceneView.scene.rootNode.addChildNode(ball)
     }
     
-    func drawRectangle(box: CGRect) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(size: debugImageView.bounds.size)
-
-        let img = renderer.image { ctx in
-            ctx.cgContext.setStrokeColor(UIColor.red.cgColor)
-            ctx.cgContext.setFillColor(gray: 0, alpha: 0)
-            ctx.cgContext.setLineWidth(5)
-            
-            let new_box = CGRect(x: box.midX, y: CGFloat(height) - box.midY, width: box.width, height: box.height)
-
-            ctx.cgContext.addRect(new_box)
-            ctx.cgContext.drawPath(using: .fillStroke)
+    //MARK: Helpers
+    /**
+     Helper function for predicting foot and result visualization.
+     */
+    private func detectFoot(orientation: CGImagePropertyOrientation) {
+        guard let buffer = currentBuffer else {
+            return
         }
-        return img
+        footDetector.predict(input: buffer, orientation: orientation) { outputBuffer, _ in
+            guard let output = outputBuffer else {
+                return
+            }
+            let debugImage = UIImage(ciImage: CIImage(cvPixelBuffer: output))
+            DispatchQueue.main.async {
+                self.debugImageView.image = debugImage
+                // clear currentBuffer for next prediction.
+                self.currentBuffer = nil
+                // add footnode blablabla
+//                let hitTestResults = self.sceneView.hitTest(CGPoint(x: bbox.midX, y: CGFloat(height) - bbox.midY), types: .existingPlaneUsingExtent)
+//                        guard let hitTestRes = hitTestResults.first else {
+//                            return
+//                        }
+//                        self.footNode.simdTransform = hitTestRes.worldTransform
+//                        self.footNode.position.y += 0.05
+//                        self.footNode.isHidden = false
+            }
+            
+            
+        }
     }
-}
+    
+    /**
+     Helper function for identifying the correct orientation for coreml to work properly.
+     */
+    private func exifOrientationFromDeviceOrientation() -> CGImagePropertyOrientation {
+        let curDeviceOrientation = UIDevice.current.orientation
+        let exifOrientation: CGImagePropertyOrientation
 
-public func exifOrientationFromDeviceOrientation() -> CGImagePropertyOrientation {
-    let curDeviceOrientation = UIDevice.current.orientation
-    let exifOrientation: CGImagePropertyOrientation
-
-    switch curDeviceOrientation {
-    case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
-        exifOrientation = .left
-    case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
-        exifOrientation = .up
-    case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
-        exifOrientation = .down
-    case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
-        exifOrientation = .right
-    default:
-        exifOrientation = .up
+        switch curDeviceOrientation {
+        case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
+            exifOrientation = .left
+        case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
+            exifOrientation = .up
+        case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
+            exifOrientation = .down
+        case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
+            exifOrientation = .right
+        default:
+            exifOrientation = .up
+        }
+        return exifOrientation
     }
-    return exifOrientation
 }
 
 // MARK: ARSessionDelegate
 extension ViewController: ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        // only perform prediction when an older prediction request is complete so that currentBuffer is set to nil.
         guard currentBuffer == nil, case .normal = frame.camera.trackingState else {
             return
         }
         currentBuffer = frame.capturedImage
-        // fix
         let orientation = exifOrientationFromDeviceOrientation()
-        let handler = VNImageRequestHandler(cvPixelBuffer: currentBuffer!, orientation: orientation)
-        do {
-            try handler.perform(self.requests)
-            debugTextView.text = debugText
-            debugImageView.image = debugImage
-        } catch {
-            print(error)
-        }
+        detectFoot(orientation: orientation)
     }
 }
 
