@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     }
     
     func setUpVision() {
-        guard let model = try? VNCoreMLModel(for: YOLO().model) else {
+        guard let model = try? VNCoreMLModel(for: FootSeg().model) else {
             fatalError("can't load model")
         }
         let request = VNCoreMLRequest(model: model) { request, error in
@@ -90,22 +90,28 @@ class ViewController: UIViewController {
             debugText = "none"
             return
         }
-        guard let obs = results.first as? VNRecognizedObjectObservation else {
+//        guard let obs = results.first as? VNRecognizedObjectObservation else {
+//            return
+//        }
+        guard let obs = results.first as? VNPixelBufferObservation else {
             return
         }
-        let bbox = VNImageRectForNormalizedRect(obs.boundingBox, width, height)
-        let label = obs.labels[0]
+        width = Int(debugImageView.bounds.width)
+        height = Int(debugImageView.bounds.height)
+        debugImage = UIImage(ciImage: CIImage(cvPixelBuffer: obs.pixelBuffer))
+//        let bbox = VNImageRectForNormalizedRect(obs.boundingBox, width, height)
+//        let label = obs.labels[0]
         
-        debugImage = drawRectangle(box: bbox)
-        debugText = label.identifier
+//        debugImage = drawRectangle(box: bbox)
+//        debugText = label.identifier
         
-        let hitTestResults = self.sceneView.hitTest(CGPoint(x: bbox.midX, y: CGFloat(height) - bbox.midY), types: .existingPlaneUsingExtent)
-        guard let hitTestRes = hitTestResults.first else {
-            return
-        }
-        self.footNode.simdTransform = hitTestRes.worldTransform
-        self.footNode.position.y += 0.05
-        self.footNode.isHidden = false
+//        let hitTestResults = self.sceneView.hitTest(CGPoint(x: bbox.midX, y: CGFloat(height) - bbox.midY), types: .existingPlaneUsingExtent)
+//        guard let hitTestRes = hitTestResults.first else {
+//            return
+//        }
+//        self.footNode.simdTransform = hitTestRes.worldTransform
+//        self.footNode.position.y += 0.05
+//        self.footNode.isHidden = false
     }
     
     @objc func viewDidTap(recognizer: UITapGestureRecognizer) {
@@ -123,7 +129,7 @@ class ViewController: UIViewController {
     }
     
     func drawRectangle(box: CGRect) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
+        let renderer = UIGraphicsImageRenderer(size: debugImageView.bounds.size)
 
         let img = renderer.image { ctx in
             ctx.cgContext.setStrokeColor(UIColor.red.cgColor)
