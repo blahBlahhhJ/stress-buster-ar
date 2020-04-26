@@ -63,6 +63,22 @@ class ViewController: UIViewController {
         sceneView.session.pause()
     }
     
+    //MARK: Tap events
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        if identifier == "toSetting" {
+            guard let dest = segue.destination as? SettingViewController else {
+                return
+            }
+            dest.visualizeDetection = false
+        }
+    }
+    
+    @IBAction func settingButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toSetting", sender: nil)
+    }
     /**
      Listener for tap events.
      Creates a ball node in the tap position.
@@ -100,13 +116,17 @@ class ViewController: UIViewController {
                 // clear currentBuffer for next prediction.
                 self.currentBuffer = nil
                 // add footnode blablabla
-//                let hitTestResults = self.sceneView.hitTest(CGPoint(x: bbox.midX, y: CGFloat(height) - bbox.midY), types: .existingPlaneUsingExtent)
-//                        guard let hitTestRes = hitTestResults.first else {
-//                            return
-//                        }
-//                        self.footNode.simdTransform = hitTestRes.worldTransform
-//                        self.footNode.position.y += 0.05
-//                        self.footNode.isHidden = false
+                guard let footPoint = self.footDetector.findFoot(in: output) else {
+                    return
+                }
+                let point = VNImagePointForNormalizedPoint(footPoint, self.width, self.height)
+                let hitTestResults = self.sceneView.hitTest(point, types: .existingPlaneUsingExtent)
+                        guard let hitTestRes = hitTestResults.first else {
+                            return
+                        }
+                        self.footNode.simdTransform = hitTestRes.worldTransform
+                        self.footNode.position.y += 0.05
+                        self.footNode.isHidden = false
             }
             
             
