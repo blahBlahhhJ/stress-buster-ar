@@ -7,31 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79EB8694245869F800F79FBA /* FootDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8684245869F700F79FBA /* FootDetector.swift */; };
+		79EB8695245869F800F79FBA /* FootSeg.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8685245869F700F79FBA /* FootSeg.mlmodel */; };
+		79EB8696245869F800F79FBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79EB8687245869F700F79FBA /* Main.storyboard */; };
+		79EB8698245869F800F79FBA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB868D245869F800F79FBA /* SettingViewController.swift */; };
+		79EB8699245869F800F79FBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB868E245869F800F79FBA /* ViewController.swift */; };
+		79EB869A245869F800F79FBA /* BallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8690245869F800F79FBA /* BallNode.swift */; };
+		79EB869B245869F800F79FBA /* PlaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8691245869F800F79FBA /* PlaneNode.swift */; };
+		79EB869C245869F800F79FBA /* SpotlightNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8692245869F800F79FBA /* SpotlightNode.swift */; };
+		79EB869D245869F800F79FBA /* FootNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8693245869F800F79FBA /* FootNode.swift */; };
+		79EB869F24586A8E00F79FBA /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB869E24586A8E00F79FBA /* GameModel.swift */; };
+		79EB86A224586C4600F79FBA /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB86A024586B1700F79FBA /* SceneController.swift */; };
+		79EB86A42458735700F79FBA /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 79EB86A32458735700F79FBA /* art.scnassets */; };
 		D4BF8C54244CF1E2000AC3D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C53244CF1E2000AC3D9 /* AppDelegate.swift */; };
-		D4BF8C58244CF1E2000AC3D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C57244CF1E2000AC3D9 /* ViewController.swift */; };
-		D4BF8C5B244CF1E2000AC3D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BF8C59244CF1E2000AC3D9 /* Main.storyboard */; };
 		D4BF8C5D244CF1E3000AC3D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BF8C5C244CF1E3000AC3D9 /* Assets.xcassets */; };
 		D4BF8C60244CF1E3000AC3D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BF8C5E244CF1E3000AC3D9 /* LaunchScreen.storyboard */; };
-		D4BF8C6E244CFAE4000AC3D9 /* PlaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C6D244CFAE4000AC3D9 /* PlaneNode.swift */; };
-		D4BF8C70244CFAFF000AC3D9 /* FootNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C6F244CFAFF000AC3D9 /* FootNode.swift */; };
-		D4BF8C72244CFB42000AC3D9 /* SpotlightNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C71244CFB42000AC3D9 /* SpotlightNode.swift */; };
-		D4BF8C74244CFC6D000AC3D9 /* BallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C73244CFC6D000AC3D9 /* BallNode.swift */; };
-		D4BF8C76244D25D9000AC3D9 /* FootModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C75244D25D9000AC3D9 /* FootModel.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79EB8684245869F700F79FBA /* FootDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootDetector.swift; sourceTree = "<group>"; };
+		79EB8685245869F700F79FBA /* FootSeg.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FootSeg.mlmodel; sourceTree = "<group>"; };
+		79EB8688245869F700F79FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		79EB868D245869F800F79FBA /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		79EB868E245869F800F79FBA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		79EB8690245869F800F79FBA /* BallNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallNode.swift; sourceTree = "<group>"; };
+		79EB8691245869F800F79FBA /* PlaneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaneNode.swift; sourceTree = "<group>"; };
+		79EB8692245869F800F79FBA /* SpotlightNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightNode.swift; sourceTree = "<group>"; };
+		79EB8693245869F800F79FBA /* FootNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootNode.swift; sourceTree = "<group>"; };
+		79EB869E24586A8E00F79FBA /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		79EB86A024586B1700F79FBA /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
+		79EB86A32458735700F79FBA /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		D4BF8C50244CF1E2000AC3D9 /* Stress Buster AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stress Buster AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BF8C53244CF1E2000AC3D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D4BF8C57244CF1E2000AC3D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D4BF8C5A244CF1E2000AC3D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4BF8C5C244CF1E3000AC3D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4BF8C5F244CF1E3000AC3D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4BF8C61244CF1E3000AC3D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4BF8C6D244CFAE4000AC3D9 /* PlaneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneNode.swift; sourceTree = "<group>"; };
-		D4BF8C6F244CFAFF000AC3D9 /* FootNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootNode.swift; sourceTree = "<group>"; };
-		D4BF8C71244CFB42000AC3D9 /* SpotlightNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightNode.swift; sourceTree = "<group>"; };
-		D4BF8C73244CFC6D000AC3D9 /* BallNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallNode.swift; sourceTree = "<group>"; };
-		D4BF8C75244D25D9000AC3D9 /* FootModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FootModel.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79EB8683245869F700F79FBA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				79EB8684245869F700F79FBA /* FootDetector.swift */,
+				79EB8685245869F700F79FBA /* FootSeg.mlmodel */,
+				79EB869E24586A8E00F79FBA /* GameModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		79EB8686245869F700F79FBA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79EB8687245869F700F79FBA /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		79EB868C245869F800F79FBA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				79EB868D245869F800F79FBA /* SettingViewController.swift */,
+				79EB86A024586B1700F79FBA /* SceneController.swift */,
+				79EB868E245869F800F79FBA /* ViewController.swift */,
+				79EB868F245869F800F79FBA /* Nodes */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		79EB868F245869F800F79FBA /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				79EB8690245869F800F79FBA /* BallNode.swift */,
+				79EB8691245869F800F79FBA /* PlaneNode.swift */,
+				79EB8692245869F800F79FBA /* SpotlightNode.swift */,
+				79EB8693245869F800F79FBA /* FootNode.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
 		D4BF8C47244CF1E2000AC3D9 = {
 			isa = PBXGroup;
 			children = (
@@ -64,27 +114,16 @@
 		D4BF8C52244CF1E2000AC3D9 /* Stress Buster AR */ = {
 			isa = PBXGroup;
 			children = (
-				D4BF8C75244D25D9000AC3D9 /* FootModel.mlmodel */,
-				D4BF8C67244CF44B000AC3D9 /* Nodes */,
 				D4BF8C53244CF1E2000AC3D9 /* AppDelegate.swift */,
-				D4BF8C57244CF1E2000AC3D9 /* ViewController.swift */,
-				D4BF8C59244CF1E2000AC3D9 /* Main.storyboard */,
 				D4BF8C5C244CF1E3000AC3D9 /* Assets.xcassets */,
+				79EB86A32458735700F79FBA /* art.scnassets */,
+				79EB868C245869F800F79FBA /* Controller */,
+				79EB8683245869F700F79FBA /* Model */,
+				79EB8686245869F700F79FBA /* View */,
 				D4BF8C5E244CF1E3000AC3D9 /* LaunchScreen.storyboard */,
 				D4BF8C61244CF1E3000AC3D9 /* Info.plist */,
 			);
 			path = "Stress Buster AR";
-			sourceTree = "<group>";
-		};
-		D4BF8C67244CF44B000AC3D9 /* Nodes */ = {
-			isa = PBXGroup;
-			children = (
-				D4BF8C6D244CFAE4000AC3D9 /* PlaneNode.swift */,
-				D4BF8C6F244CFAFF000AC3D9 /* FootNode.swift */,
-				D4BF8C71244CFB42000AC3D9 /* SpotlightNode.swift */,
-				D4BF8C73244CFC6D000AC3D9 /* BallNode.swift */,
-			);
-			path = Nodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +184,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79EB8696245869F800F79FBA /* Main.storyboard in Resources */,
+				79EB86A42458735700F79FBA /* art.scnassets in Resources */,
 				D4BF8C60244CF1E3000AC3D9 /* LaunchScreen.storyboard in Resources */,
 				D4BF8C5D244CF1E3000AC3D9 /* Assets.xcassets in Resources */,
-				D4BF8C5B244CF1E2000AC3D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,23 +198,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BF8C58244CF1E2000AC3D9 /* ViewController.swift in Sources */,
-				D4BF8C76244D25D9000AC3D9 /* FootModel.mlmodel in Sources */,
+				79EB869C245869F800F79FBA /* SpotlightNode.swift in Sources */,
+				79EB869D245869F800F79FBA /* FootNode.swift in Sources */,
+				79EB86A224586C4600F79FBA /* SceneController.swift in Sources */,
+				79EB869B245869F800F79FBA /* PlaneNode.swift in Sources */,
+				79EB8699245869F800F79FBA /* ViewController.swift in Sources */,
+				79EB8698245869F800F79FBA /* SettingViewController.swift in Sources */,
+				79EB869F24586A8E00F79FBA /* GameModel.swift in Sources */,
+				79EB8694245869F800F79FBA /* FootDetector.swift in Sources */,
+				79EB8695245869F800F79FBA /* FootSeg.mlmodel in Sources */,
 				D4BF8C54244CF1E2000AC3D9 /* AppDelegate.swift in Sources */,
-				D4BF8C74244CFC6D000AC3D9 /* BallNode.swift in Sources */,
-				D4BF8C6E244CFAE4000AC3D9 /* PlaneNode.swift in Sources */,
-				D4BF8C72244CFB42000AC3D9 /* SpotlightNode.swift in Sources */,
-				D4BF8C70244CFAFF000AC3D9 /* FootNode.swift in Sources */,
+				79EB869A245869F800F79FBA /* BallNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D4BF8C59244CF1E2000AC3D9 /* Main.storyboard */ = {
+		79EB8687245869F700F79FBA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D4BF8C5A244CF1E2000AC3D9 /* Base */,
+				79EB8688245869F700F79FBA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -309,13 +353,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HN63PVC5XZ;
+				DEVELOPMENT_TEAM = J6ANCADM7N;
 				INFOPLIST_FILE = "Stress Buster AR/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "blabla.Stress-Buster-AR";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.richardyrh.Stress-Buster-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -327,13 +372,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HN63PVC5XZ;
+				DEVELOPMENT_TEAM = J6ANCADM7N;
 				INFOPLIST_FILE = "Stress Buster AR/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "blabla.Stress-Buster-AR";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.richardyrh.Stress-Buster-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

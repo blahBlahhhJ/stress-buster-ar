@@ -37,11 +37,12 @@ class ViewController: UIViewController {
         sceneView.autoenablesDefaultLighting = true
         sceneView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewDidTap(recognizer:))))
         
-        let spotlightNode = SpotlightNode()
+        /*let spotlightNode = SpotlightNode()
         spotlightNode.position = SCNVector3(10, 10, 0)
-        sceneView.scene.rootNode.addChildNode(spotlightNode)
-        sceneView.scene.rootNode.addChildNode(footNode)
+        sceneView.scene.rootNode.addChildNode(spotlightNode)*/
+        // Richard Note: gonna setup some other lighting system for shadows, 3d rendering etc.
         
+        sceneController.setupScene(sceneView, contactDelegate: self, footNode: footNode)
         footDetector.setUpVision()
     }
     
@@ -85,17 +86,23 @@ class ViewController: UIViewController {
      Just for test.
      */
     @objc func viewDidTap(recognizer: UITapGestureRecognizer) {
+        let testRichard = true
         let tapLoc = recognizer.location(in: sceneView)
         let hitTestResults = sceneView.hitTest(tapLoc, types: .existingPlaneUsingExtent)
         guard let hitTestRes = hitTestResults.first else {
             return
         }
-        
-        let ball = BallNode(radius: 0.05)
-        ball.simdTransform = hitTestRes.worldTransform
-        ball.position.y += 0.05
-        
-        sceneView.scene.rootNode.addChildNode(ball)
+        if (testRichard) {
+            print("Tappy tappy")
+            //sceneController.addFlyingBall()
+            sceneController.addStaticBall(at: hitTestRes.worldTransform)
+        } else {
+            let ball = BallNode(radius: 0.05)
+            ball.simdTransform = hitTestRes.worldTransform
+            ball.position.y += 0.05
+            
+            sceneView.scene.rootNode.addChildNode(ball)
+        }
     }
     
     //MARK: Helpers
@@ -171,24 +178,40 @@ extension ViewController: ARSessionDelegate {
 
 // MARK: ARSCNViewDelegate
 extension ViewController: ARSCNViewDelegate {
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+    /*func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         guard let _ = anchor as? ARPlaneAnchor else {
             return nil
         }
         return PlaneNode()
-    }
+    }*/
+    // not needed
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor, let planeNode = node as? PlaneNode else {
+        /*guard let planeAnchor = anchor as? ARPlaneAnchor, let planeNode = node as? PlaneNode else {
+            return
+        }*/
+        guard let planeAnchor = anchor as? ARPlaneAnchor else {
             return
         }
-        planeNode.update(from: planeAnchor)
+        sceneController.beginAR(anchorAt: planeAnchor, node: node)
+        //planeNode.update(from: planeAnchor)
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        sceneController.frameUpdate()
+    }
+    /*func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor, let planeNode = node as? PlaneNode else {
             return
         }
         planeNode.update(from: planeAnchor)
+    }*/
+}
+
+
+//MARK: SCNPhysicsContactDelegate
+extension UIViewController: SCNPhysicsContactDelegate {
+    public func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        sceneController.didContact(contact)
     }
 }
