@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     var footNode = FootNode()
     let footDetector = FootDetector()
     var currentBuffer: CVPixelBuffer?
+    var currentOrientation = CGImagePropertyOrientation.up
     
     private var width = Int(UIScreen.main.bounds.width)
     private var height = Int(UIScreen.main.bounds.height)
@@ -37,9 +38,6 @@ class ViewController: UIViewController {
         sceneView.autoenablesDefaultLighting = true
         sceneView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewDidTap(recognizer:))))
         
-        /*let spotlightNode = SpotlightNode()
-        spotlightNode.position = SCNVector3(10, 10, 0)
-        sceneView.scene.rootNode.addChildNode(spotlightNode)*/
         // Richard Note: gonna setup some other lighting system for shadows, 3d rendering etc.
         
         sceneController.setupScene(sceneView, contactDelegate: self, footNode: footNode)
@@ -126,6 +124,8 @@ class ViewController: UIViewController {
                 guard let footPoint = self.footDetector.findFoot(in: output) else {
                     return
                 }
+                self.width = Int(self.view.bounds.width)
+                self.height = Int(self.view.bounds.height)
                 let point = VNImagePointForNormalizedPoint(footPoint, self.width, self.height)
                 let hitTestResults = self.sceneView.hitTest(point, types: .existingPlaneUsingExtent)
                         guard let hitTestRes = hitTestResults.first else {
@@ -157,7 +157,7 @@ class ViewController: UIViewController {
         case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
             exifOrientation = .right
         default:
-            exifOrientation = .up
+            exifOrientation = currentOrientation
         }
         return exifOrientation
     }
@@ -171,41 +171,23 @@ extension ViewController: ARSessionDelegate {
             return
         }
         currentBuffer = frame.capturedImage
-        let orientation = exifOrientationFromDeviceOrientation()
-        detectFoot(orientation: orientation)
+        currentOrientation = exifOrientationFromDeviceOrientation()
+        detectFoot(orientation: currentOrientation)
     }
 }
 
 // MARK: ARSCNViewDelegate
 extension ViewController: ARSCNViewDelegate {
-    /*func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        guard let _ = anchor as? ARPlaneAnchor else {
-            return nil
-        }
-        return PlaneNode()
-    }*/
-    // not needed
-    
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        /*guard let planeAnchor = anchor as? ARPlaneAnchor, let planeNode = node as? PlaneNode else {
-            return
-        }*/
         guard let planeAnchor = anchor as? ARPlaneAnchor else {
             return
         }
         sceneController.beginAR(anchorAt: planeAnchor, node: node)
-        //planeNode.update(from: planeAnchor)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         sceneController.frameUpdate()
     }
-    /*func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor, let planeNode = node as? PlaneNode else {
-            return
-        }
-        planeNode.update(from: planeAnchor)
-    }*/
 }
 
 
