@@ -18,7 +18,7 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                             </arscnView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FGi-hU-gaZ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FGi-hU-gaZ">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewk-pG-1aM">
@@ -63,7 +63,7 @@
             <objects>
                 <viewController id="CM5-j2-BQ5" customClass="SettingViewController" customModule="Stress_Buster_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d0p-nB-o3Y">
-                        <rect key="frame" x="0.0" y="0.0" width="712" height="1006.9200564096436"/>
+                        <rect key="frame" x="0.0" y="0.0" width="712" height="1007"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqa-7H-9eq">
@@ -82,29 +82,68 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HC6-n1-DaR">
-                                <rect key="frame" x="563" y="143" width="51" height="31"/>
-                            </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zAm-mR-QgW">
+                                <rect key="frame" x="410" y="143" width="204" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Qqe-nK-nfv"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="alphaSliderChanged:" destination="CM5-j2-BQ5" eventType="valueChanged" id="z8B-m4-ONc"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9t-3R-eF3">
+                                <rect key="frame" x="381.5" y="147" width="10.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGn-pF-hkj">
+                                <rect key="frame" x="100" y="227" width="135" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ooR-oE-C7P">
+                                <rect key="frame" x="412" y="227" width="200" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="azz-tS-euW"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Shrek"/>
+                                    <segment title="Hoover"/>
+                                </segments>
+                                <connections>
+                                    <action selector="modelSelectionChanged:" destination="CM5-j2-BQ5" eventType="valueChanged" id="STK-1f-vbF"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="HC6-n1-DaR" firstAttribute="top" secondItem="Vqa-7H-9eq" secondAttribute="bottom" constant="60" id="1mk-l3-K3F"/>
+                            <constraint firstItem="ApY-pu-crW" firstAttribute="trailing" secondItem="zAm-mR-QgW" secondAttribute="trailing" constant="100" id="2Pb-ks-zKB"/>
                             <constraint firstItem="4gy-B5-lTc" firstAttribute="top" secondItem="Vqa-7H-9eq" secondAttribute="bottom" constant="60" id="2zY-h2-pPf"/>
-                            <constraint firstItem="ApY-pu-crW" firstAttribute="trailing" secondItem="HC6-n1-DaR" secondAttribute="trailing" constant="100" id="3YK-oo-375"/>
                             <constraint firstItem="4gy-B5-lTc" firstAttribute="leading" secondItem="ApY-pu-crW" secondAttribute="leading" constant="100" id="41n-W8-Bf6"/>
+                            <constraint firstItem="zAm-mR-QgW" firstAttribute="top" secondItem="Vqa-7H-9eq" secondAttribute="bottom" constant="60" id="5tB-1Q-YzQ"/>
+                            <constraint firstItem="ApY-pu-crW" firstAttribute="trailing" secondItem="ooR-oE-C7P" secondAttribute="trailing" constant="100" id="Kd4-Wc-Mi3"/>
+                            <constraint firstItem="pGn-pF-hkj" firstAttribute="top" secondItem="4gy-B5-lTc" secondAttribute="bottom" constant="60" id="Ol8-t0-f7h"/>
                             <constraint firstItem="Vqa-7H-9eq" firstAttribute="centerX" secondItem="ApY-pu-crW" secondAttribute="centerX" id="RHJ-X3-kjN"/>
+                            <constraint firstItem="zAm-mR-QgW" firstAttribute="leading" secondItem="r9t-3R-eF3" secondAttribute="trailing" constant="20" id="TZ5-Q4-fwT"/>
+                            <constraint firstItem="r9t-3R-eF3" firstAttribute="top" secondItem="Vqa-7H-9eq" secondAttribute="bottom" constant="64" id="fMy-NF-Rk2"/>
+                            <constraint firstItem="pGn-pF-hkj" firstAttribute="leading" secondItem="ApY-pu-crW" secondAttribute="leading" constant="100" id="mqx-rB-88K"/>
                             <constraint firstItem="Vqa-7H-9eq" firstAttribute="top" secondItem="ApY-pu-crW" secondAttribute="top" constant="50" id="vYZ-Pj-OhG"/>
+                            <constraint firstItem="ooR-oE-C7P" firstAttribute="top" secondItem="zAm-mR-QgW" secondAttribute="bottom" constant="54" id="wJ8-MU-AVo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ApY-pu-crW"/>
                     </view>
                     <navigationItem key="navigationItem" id="Plj-9U-h5Y"/>
                     <connections>
-                        <outlet property="visualizeDetectionSwitch" destination="HC6-n1-DaR" id="iDd-yH-G6A"/>
+                        <outlet property="selectModelSegment" destination="ooR-oE-C7P" id="nb1-DC-5dd"/>
+                        <outlet property="sliderValueLabel" destination="r9t-3R-eF3" id="tbo-CK-Cmo"/>
+                        <outlet property="visualizeAlphaSlider" destination="zAm-mR-QgW" id="YLX-Wx-FhV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8oc-o6-SSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="134"/>
+            <point key="canvasLocation" x="896.40287769784175" y="133.81294964028777"/>
         </scene>
     </scenes>
     <resources>

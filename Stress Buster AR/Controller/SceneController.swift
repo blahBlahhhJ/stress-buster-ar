@@ -94,8 +94,8 @@ class SceneController {
 
         node.position = SCNVector3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z)
         node.addChildNode(mainNode)
-        print(gameModel.selectedModel)
-        addStructure(named: gameModel.selectedModel, at: SCNVector3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z))
+        print(setting.selectedModel)
+        addStructure(named: setting.selectedModel, at: SCNVector3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z))
     }
     
     func addStructure(named name: String, at position: SCNVector3 = SCNVector3(0,0,0)) {

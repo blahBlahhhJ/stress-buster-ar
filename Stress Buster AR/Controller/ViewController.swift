@@ -71,7 +71,6 @@ class ViewController: UIViewController {
             guard let dest = segue.destination as? SettingViewController else {
                 return
             }
-            dest.visualizeDetection = false
         }
     }
     
@@ -117,6 +116,7 @@ class ViewController: UIViewController {
             }
             let debugImage = UIImage(ciImage: CIImage(cvPixelBuffer: output))
             DispatchQueue.main.async {
+                self.debugImageView.alpha = CGFloat(setting.visualAlpha)
                 self.debugImageView.image = debugImage
                 // clear currentBuffer for next prediction.
                 self.currentBuffer = nil

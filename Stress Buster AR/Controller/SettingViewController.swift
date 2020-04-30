@@ -10,26 +10,33 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
-    @IBOutlet weak var visualizeDetectionSwitch: UISwitch!
+    @IBOutlet weak var sliderValueLabel: UILabel!
     
-    var visualizeDetection = false
+    @IBOutlet weak var visualizeAlphaSlider: UISlider!
     
+    @IBOutlet weak var selectModelSegment: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        visualizeDetectionSwitch.isOn =  visualizeDetection
+        visualizeAlphaSlider.value = setting.visualAlpha
+        sliderValueLabel.text = "\(round(visualizeAlphaSlider.value * 100) / 100)"
+        if setting.selectedModel == "art.scnassets/shrek.scn" {
+            selectModelSegment.selectedSegmentIndex = 0
+        } else if setting.selectedModel == "art.scnassets/Hoover.scn" {
+            selectModelSegment.selectedSegmentIndex = 1
+        }
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func alphaSliderChanged(_ sender: Any) {
+        setting.visualAlpha = visualizeAlphaSlider.value
+        sliderValueLabel.text = "\(round(visualizeAlphaSlider.value * 100) / 100)"
     }
-    */
-
+    
+    @IBAction func modelSelectionChanged(_ sender: Any) {
+        if selectModelSegment.selectedSegmentIndex == 0 {
+            setting.selectedModel = "art.scnassets/shrek.scn"
+        } else if selectModelSegment.selectedSegmentIndex == 1 {
+            setting.selectedModel = "art.scnassets/Hoover.scn"
+        }
+    }
 }
