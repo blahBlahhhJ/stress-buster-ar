@@ -120,7 +120,7 @@ class ViewController: UIViewController {
                 self.debugImageView.image = debugImage
                 // clear currentBuffer for next prediction.
                 self.currentBuffer = nil
-                // add footnode blablabla
+                // this is where you switch the method for finding foot
                 guard let footPoint = self.footDetector.findFoot(in: output) else {
                     return
                 }
