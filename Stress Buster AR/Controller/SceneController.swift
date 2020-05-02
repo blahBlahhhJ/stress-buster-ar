@@ -19,7 +19,7 @@ class SceneController {
     let FOOT_MASK = 8
 
     var mainNode: SCNNode!
-    var structNode: SCNNode!
+    var structNode: SCNNode?
     var ballParent: SCNNode!
     var toBeSettled = Set<SCNNode>()
     var collided = false
@@ -105,7 +105,9 @@ class SceneController {
     
     func clearStructure() {
         disableGravity()
-        mainNode.childNode(withName: "struct", recursively: false)?.removeFromParentNode()
+        collided = false
+        toBeSettled.removeAll()
+        structNode?.removeFromParentNode()
     }
     
     func placeStructure(atPosition position: SCNVector3) {
@@ -197,8 +199,12 @@ class SceneController {
             addStructure(named: setting.selectedModel, at: newPos)
             newPosition = nil
         }
-        for node in toBeSettled {
-            node.physicsBody!.setResting(true)
+        if !collided {
+            if let sNode = structNode {
+                for node in sNode.childNodes {
+                    node.physicsBody!.setResting(true)
+                }
+            }
         }
     }
     
@@ -211,15 +217,19 @@ class SceneController {
             collisionType == FOOT_MASK | STRUCT_MASK) {
             let structNode = contact.nodeA.physicsBody!.categoryBitMask == STRUCT_MASK ? contact.nodeA : contact.nodeB
             if toBeSettled.contains(structNode) {
-                /*structNode.physicsBody?.isAffectedByGravity = true
-                toBeSettled.remove(structNode)*/
-                enableGravity()
+                if !collided {
+                    enableGravity()
+                    collided = true
+                }
             }
         }
     }
     
     func enableGravity() {
         sceneView.scene.physicsWorld.gravity = SCNVector3(0, -4.9, 0)
+        for structNode in toBeSettled {
+            structNode.physicsBody?.collisionBitMask = STRUCT_MASK | BALL_MASK | FOOT_MASK | FLOOR_MASK
+        }
         toBeSettled.removeAll()
     }
     
