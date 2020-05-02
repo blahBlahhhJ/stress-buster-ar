@@ -23,7 +23,7 @@ class FootNode: SCNNode {
     private func commonInit() {
         let cylinder = SCNCylinder(radius: 0.05, height: 0.3)
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.blue.withAlphaComponent(0.5)
+        material.diffuse.contents = UIColor.blue.withAlphaComponent(0)
         geometry = cylinder
         cylinder.firstMaterial = material
         

@@ -22,13 +22,17 @@ class StartViewController: UIViewController {
         playButton.layer.shadowColor = UIColor.black.cgColor
         playButton.layer.shadowRadius = 8
         playButton.layer.shadowOpacity = 0.5
-        titleFadeIn()
+        launchScreenAnimation()
     }
     
-    private func titleFadeIn() {
-        titleLabel.center.y += 180
+    private func launchScreenAnimation() {
+        playButton.alpha = 0
+        playButton.transform = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
+        titleLabel.center.y += 80
         UIView.animate(withDuration: 0.5) {
-            self.titleLabel.center.y -= 180
+            self.playButton.alpha = 1
+            self.playButton.transform = CGAffineTransform.identity
+            self.titleLabel.center.y -= 80
         }
     }
     
