@@ -34,8 +34,8 @@ class StartViewController: UIViewController {
         
         titleLabel.center.y += 80
         
-        self.footTrailingConstraint.constant = 0.33 * self.foregroundImageView.bounds.width
-        self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 8)
+        print(foregroundImageView.frame.width)
+        foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 4)
         UIView.animate(withDuration: 0.5, animations: {
             self.playButton.alpha = 1
             self.playButton.transform = CGAffineTransform.identity
@@ -43,10 +43,10 @@ class StartViewController: UIViewController {
         }, completion: {(finished) in
             UIView.animateKeyframes(withDuration: 4, delay: 0, options: [.repeat, .calculationModeCubic], animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2, animations: {
-                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 8)
+                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 4)
                 })
                 UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.08, animations: {
-                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 2)
+                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 0)
                 })
                 UIView.addKeyframe(withRelativeStartTime: 0.28, relativeDuration: 0.16, animations: {
                     self.foregroundImageView.transform = .init(rotationAngle: CGFloat.pi / 180 * 20)
@@ -58,10 +58,10 @@ class StartViewController: UIViewController {
                     self.foregroundImageView.transform = .init(rotationAngle: CGFloat.pi / 180 * 20)
                 })
                 UIView.addKeyframe(withRelativeStartTime: 0.76, relativeDuration: 0.16, animations: {
-                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 2)
+                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 0)
                 })
                 UIView.addKeyframe(withRelativeStartTime: 0.92, relativeDuration: 0.08, animations: {
-                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 8)
+                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 4)
                 })
             })
         })
