@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n5P-iK-tGX">
-    <device id="ipad10_5" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,17 +12,17 @@
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="Stress_Buster_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </arscnView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FGi-hU-gaZ">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewk-pG-1aM">
-                                <rect key="frame" x="774" y="20" width="40" height="40"/>
+                                <rect key="frame" x="354" y="64" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="C6q-wg-rxa"/>
                                     <constraint firstAttribute="height" constant="40" id="Wxy-Yn-665"/>
@@ -32,61 +32,93 @@
                                     <action selector="settingButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="8XJ-SF-tBs"/>
                                 </connections>
                             </button>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJo-gc-dkL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tEy-Ci-v4m">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="FGi-hU-gaZ" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="1dr-o1-SVp"/>
+                            <constraint firstItem="SJo-gc-dkL" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="Egr-eM-hNF"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="ewk-pG-1aM" secondAttribute="trailing" constant="20" id="G00-hb-5MH"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="FGi-hU-gaZ" secondAttribute="trailing" id="Okf-M6-WD0"/>
                             <constraint firstItem="FGi-hU-gaZ" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="Otm-ha-2hX"/>
+                            <constraint firstItem="SJo-gc-dkL" firstAttribute="top" secondItem="BrB-h1-WRS" secondAttribute="top" id="RB2-2X-1Va"/>
+                            <constraint firstItem="SJo-gc-dkL" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="SE6-uU-ZqA"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
                             <constraint firstItem="ewk-pG-1aM" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="20" id="g4s-0B-9BF"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="FGi-hU-gaZ" secondAttribute="bottom" id="gmh-EN-RjZ"/>
+                            <constraint firstItem="SJo-gc-dkL" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="ltN-iS-532"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <navigationItem key="navigationItem" id="iJL-WT-gbc"/>
                     <connections>
+                        <outlet property="blurView" destination="SJo-gc-dkL" id="XpM-cA-ZqM"/>
                         <outlet property="debugImageView" destination="FGi-hU-gaZ" id="OIH-qv-fs7"/>
+                        <outlet property="popUpView" destination="gYa-eA-kdg" id="ote-RC-36f"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="TAU-oh-5YV"/>
                         <segue destination="CM5-j2-BQ5" kind="show" identifier="toSetting" id="sWt-EC-gLq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="gYa-eA-kdg">
+                    <rect key="frame" x="0.0" y="0.0" width="276" height="161"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move device to start" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="za7-Yz-xSU">
+                            <rect key="frame" x="25" y="65" width="226" height="31.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="za7-Yz-xSU" firstAttribute="centerY" secondItem="gYa-eA-kdg" secondAttribute="centerY" id="lGK-xz-iyh"/>
+                        <constraint firstItem="za7-Yz-xSU" firstAttribute="centerX" secondItem="gYa-eA-kdg" secondAttribute="centerX" id="zUj-eL-1GW"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="r8C-H3-M90"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="232" y="-269"/>
+            <point key="canvasLocation" x="231.65467625899282" y="-269.24460431654677"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="olc-jr-JJJ">
             <objects>
                 <viewController id="n5P-iK-tGX" customClass="StartViewController" customModule="Stress_Buster_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ql-0f-OT1">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NA-38-Ty5">
-                                <rect key="frame" x="367" y="506" width="100" height="100"/>
+                                <rect key="frame" x="157" y="398" width="100" height="100"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="SpU-Yg-sXK"/>
                                     <constraint firstAttribute="width" constant="100" id="rmY-RQ-eaW"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <state key="normal" title="PLAY"/>
                                 <connections>
                                     <action selector="playPressed:" destination="n5P-iK-tGX" eventType="touchUpInside" id="njC-UU-yaC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stress Buster AR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O99-rg-1Bp">
-                                <rect key="frame" x="253.5" y="100" width="327" height="55"/>
+                                <rect key="frame" x="43.5" y="144" width="327" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfY-Ii-iKs">
-                                <rect key="frame" x="774" y="20" width="40" height="40"/>
+                                <rect key="frame" x="354" y="64" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="c8c-fc-v1z"/>
                                     <constraint firstAttribute="height" constant="40" id="oed-RG-ieW"/>
@@ -123,11 +155,11 @@
             <objects>
                 <viewController id="CM5-j2-BQ5" customClass="SettingViewController" customModule="Stress_Buster_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d0p-nB-o3Y">
-                        <rect key="frame" x="0.0" y="0.0" width="712" height="1006.9200564096436"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqa-7H-9eq">
-                                <rect key="frame" x="307.5" y="50" width="97" height="33"/>
+                                <rect key="frame" x="158.5" y="50" width="97" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -151,7 +183,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ooR-oE-C7P">
-                                <rect key="frame" x="492" y="227" width="200" height="32"/>
+                                <rect key="frame" x="194" y="227" width="200" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="azz-tS-euW"/>
                                 </constraints>
@@ -201,7 +233,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iwg-Zd-xXh"/>
+        <segue reference="sWt-EC-gLq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>

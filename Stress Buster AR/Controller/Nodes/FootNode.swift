@@ -23,7 +23,7 @@ class FootNode: SCNNode {
     private func commonInit() {
         let sphere = SCNSphere(radius: 0.10)
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.blue.withAlphaComponent(0.7)
+        material.diffuse.contents = UIColor.blue.withAlphaComponent(0)
         geometry = sphere
         sphere.firstMaterial = material
         

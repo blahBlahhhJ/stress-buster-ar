@@ -16,11 +16,16 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var debugImageView: UIImageView!
+    @IBOutlet var popUpView: UIView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
     
     var footNode = FootNode()
     let footDetector = FootDetector()
+    
     var currentBuffer: CVPixelBuffer?
     var currentOrientation = CGImagePropertyOrientation.up
+    
+    var blurEffectOn = true
     
     private var width = Int(UIScreen.main.bounds.width)
     private var height = Int(UIScreen.main.bounds.height)
@@ -28,19 +33,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the view's delegate
+        // SceneView setup
         sceneView.delegate = self
         sceneView.session.delegate = self
-        
-        // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        
         sceneView.autoenablesDefaultLighting = true
         sceneView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewDidTap(recognizer:))))
         
+        // BlurEffect and popup setup
+        popUpFadeIn()
+        
         // Richard Note: gonna setup some other lighting system for shadows, 3d rendering etc.
         
+        // AR setup
         sceneController.setupScene(sceneView, contactDelegate: self, footNode: footNode)
+        
+        // Vision setup
         footDetector.setUpVision()
     }
     
@@ -103,6 +111,40 @@ class ViewController: UIViewController {
     }
     
     //MARK: Helpers
+    
+    /**
+     Helper function for popUpView to fade in.
+     */
+    private func popUpFadeIn() {
+        self.view.addSubview(popUpView)
+        popUpView.layer.cornerRadius = 5
+        popUpView.translatesAutoresizingMaskIntoConstraints = false
+        popUpView.center = self.view.center
+        popUpView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 100).isActive = true
+        popUpView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -100).isActive = true
+        popUpView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true
+        popUpView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100).isActive = true
+        popUpView.alpha = 0
+        popUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        
+        UIView.animate(withDuration: 0.5) {
+            self.popUpView.transform = CGAffineTransform.identity
+            self.popUpView.alpha = 1
+        }
+    }
+    
+    private func popUpFadeOut() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.popUpView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+                self.popUpView.alpha = 0
+            }) { (success: Bool) in
+                self.blurView.removeFromSuperview()
+                self.popUpView.removeFromSuperview()
+                self.blurEffectOn = false
+            }
+        }
+    }
     /**
      Helper function for predicting foot and result visualization.
      */
@@ -181,6 +223,9 @@ extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else {
             return
+        }
+        if self.blurEffectOn {
+            popUpFadeOut()
         }
         sceneController.beginAR(anchorAt: planeAnchor, node: node)
     }
