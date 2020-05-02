@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         // SceneView setup
         sceneView.delegate = self
         sceneView.session.delegate = self
-        sceneView.showsStatistics = true
+        sceneView.showsStatistics = false
         sceneView.autoenablesDefaultLighting = true
         sceneView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewDidTap(recognizer:))))
         

@@ -14,18 +14,17 @@ class StartViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var foregroundImageView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var footLeadingConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setBackgroundImg()
+        playButton.layer.shadowOffset = CGSize(width: 0, height: 2)
         playButton.layer.shadowColor = UIColor.black.cgColor
         playButton.layer.shadowRadius = 8
         playButton.layer.shadowOpacity = 0.5
-        foregroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        foregroundImageView.topAnchor.constraint(equalTo: backgroundImageView.topAnchor, constant: 0.06 * backgroundImageView.bounds.height).isActive = true
-        foregroundImageView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 0.3 * backgroundImageView.bounds.width).isActive = true
         launchScreenAnimation()
     }
     
@@ -35,14 +34,38 @@ class StartViewController: UIViewController {
         
         titleLabel.center.y += 80
         
-        UIView.animate(withDuration: 0.5) {
+        self.footLeadingConstraint.constant = -0.7 * self.foregroundImageView.bounds.width
+        self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 8)
+        UIView.animate(withDuration: 0.5, animations: {
             self.playButton.alpha = 1
             self.playButton.transform = CGAffineTransform.identity
-            
             self.titleLabel.center.y -= 80
-            
-//            self.foregroundImageView.center.x = self.backgroundImageView.center.x + 0.5 * self.backgroundImageView.bounds.width
-        }
+            self.view.layoutIfNeeded()
+        }, completion: {(finished) in
+            UIView.animateKeyframes(withDuration: 4, delay: 0, options: [.repeat, .calculationModeCubic], animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2, animations: {
+                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 8)
+                })
+                UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.08, animations: {
+                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 2)
+                })
+                UIView.addKeyframe(withRelativeStartTime: 0.28, relativeDuration: 0.16, animations: {
+                    self.foregroundImageView.transform = .init(rotationAngle: CGFloat.pi / 180 * 20)
+                })
+                UIView.addKeyframe(withRelativeStartTime: 0.44, relativeDuration: 0.16, animations: {
+                    self.foregroundImageView.transform = .init(rotationAngle: CGFloat.pi / 180 * 12)
+                })
+                UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.16, animations: {
+                    self.foregroundImageView.transform = .init(rotationAngle: CGFloat.pi / 180 * 20)
+                })
+                UIView.addKeyframe(withRelativeStartTime: 0.76, relativeDuration: 0.16, animations: {
+                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 2)
+                })
+                UIView.addKeyframe(withRelativeStartTime: 0.92, relativeDuration: 0.08, animations: {
+                    self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 8)
+                })
+            })
+        })
     }
     
     private func setBackgroundImg() {
