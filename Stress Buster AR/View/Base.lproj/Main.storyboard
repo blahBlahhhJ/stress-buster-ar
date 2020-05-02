@@ -135,7 +135,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foot" translatesAutoresizingMaskIntoConstraints="NO" id="2SP-wr-w11">
-                                <rect key="frame" x="810" y="162" width="688.5" height="918"/>
+                                <rect key="frame" x="121.5" y="162" width="688.5" height="918"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S  T  R  E  S  S       B  U  S  T  E  R       A  R" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O99-rg-1Bp">
                                 <rect key="frame" x="205" y="1000" width="400" height="80"/>
@@ -182,6 +182,7 @@
                         <constraints>
                             <constraint firstItem="X8m-GJ-P6h" firstAttribute="trailing" secondItem="IfY-Ii-iKs" secondAttribute="trailing" constant="20" id="991-vM-Cgn"/>
                             <constraint firstItem="7NA-38-Ty5" firstAttribute="centerX" secondItem="4ql-0f-OT1" secondAttribute="centerX" id="Fa0-vt-AJf"/>
+                            <constraint firstItem="2SP-wr-w11" firstAttribute="trailing" secondItem="Vi0-zW-Sow" secondAttribute="trailing" id="I3x-qZ-J0I"/>
                             <constraint firstItem="7NA-38-Ty5" firstAttribute="centerY" secondItem="4ql-0f-OT1" secondAttribute="centerY" id="Jc4-0p-OFU"/>
                             <constraint firstItem="IfY-Ii-iKs" firstAttribute="top" secondItem="X8m-GJ-P6h" secondAttribute="top" constant="20" id="MXJ-Yg-T6p"/>
                             <constraint firstItem="2SP-wr-w11" firstAttribute="width" secondItem="Vi0-zW-Sow" secondAttribute="width" multiplier="0.85" id="OIO-s2-A87"/>
@@ -189,7 +190,6 @@
                             <constraint firstItem="2SP-wr-w11" firstAttribute="bottom" secondItem="Vi0-zW-Sow" secondAttribute="bottom" id="gWt-eQ-1Um"/>
                             <constraint firstItem="Vi0-zW-Sow" firstAttribute="leading" secondItem="4ql-0f-OT1" secondAttribute="leading" id="hBQ-f8-jJu"/>
                             <constraint firstItem="O99-rg-1Bp" firstAttribute="centerX" secondItem="4ql-0f-OT1" secondAttribute="centerX" id="hUX-Ya-Iw9"/>
-                            <constraint firstItem="2SP-wr-w11" firstAttribute="leading" secondItem="Vi0-zW-Sow" secondAttribute="trailing" id="ie2-oz-Pxm"/>
                             <constraint firstAttribute="trailing" secondItem="Vi0-zW-Sow" secondAttribute="trailing" id="l2T-kx-zLB"/>
                             <constraint firstItem="2SP-wr-w11" firstAttribute="height" secondItem="Vi0-zW-Sow" secondAttribute="height" multiplier="0.85" id="nDp-lO-xKZ"/>
                             <constraint firstItem="X8m-GJ-P6h" firstAttribute="bottom" secondItem="O99-rg-1Bp" secondAttribute="bottom" id="r2g-kP-pcc"/>
@@ -199,7 +199,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="Vi0-zW-Sow" id="Evv-2g-eIy"/>
-                        <outlet property="footLeadingConstraint" destination="ie2-oz-Pxm" id="XLb-Pd-6QC"/>
+                        <outlet property="footTrailingConstraint" destination="I3x-qZ-J0I" id="ERd-Cm-3zb"/>
                         <outlet property="foregroundImageView" destination="2SP-wr-w11" id="5uj-dU-QO0"/>
                         <outlet property="playButton" destination="7NA-38-Ty5" id="naW-Fa-kD7"/>
                         <outlet property="titleLabel" destination="O99-rg-1Bp" id="4aL-So-kRR"/>

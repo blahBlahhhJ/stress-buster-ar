@@ -14,7 +14,7 @@ class StartViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var foregroundImageView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var footLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var footTrailingConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +34,12 @@ class StartViewController: UIViewController {
         
         titleLabel.center.y += 80
         
-        self.footLeadingConstraint.constant = -0.7 * self.foregroundImageView.bounds.width
+        self.footTrailingConstraint.constant = 0.3 * self.foregroundImageView.bounds.width
         self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 8)
         UIView.animate(withDuration: 0.5, animations: {
             self.playButton.alpha = 1
             self.playButton.transform = CGAffineTransform.identity
             self.titleLabel.center.y -= 80
-            self.view.layoutIfNeeded()
         }, completion: {(finished) in
             UIView.animateKeyframes(withDuration: 4, delay: 0, options: [.repeat, .calculationModeCubic], animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2, animations: {
