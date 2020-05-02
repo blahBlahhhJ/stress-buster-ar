@@ -116,15 +116,15 @@ class SceneController {
     
     func addStructure(named name: String, at position: SCNVector3 = SCNVector3(0,0,0)) {
         let scene = SCNScene(named: name)!
-        let structNode = SCNNode()
-        structNode.name = "struct"
+        structNode = SCNNode()
+        structNode!.name = "struct"
         for node in scene.rootNode.childNodes {
-            structNode.addChildNode(node)
+            structNode!.addChildNode(node)
         }
-        structNode.addChildNode(makeFloor())
-        structNode.addChildNode(makeLights())
-        mainNode.addChildNode(structNode)
-        for childNode in structNode.childNodes {
+        structNode!.addChildNode(makeFloor())
+        structNode!.addChildNode(makeLights())
+        mainNode.addChildNode(structNode!)
+        for childNode in structNode!.childNodes {
             if childNode.physicsBody != nil && childNode.name != "floor" && childNode.name != "lights" {
                 childNode.physicsBody?.categoryBitMask = STRUCT_MASK
                 childNode.physicsBody?.collisionBitMask = BALL_MASK | FLOOR_MASK | FOOT_MASK
@@ -202,7 +202,7 @@ class SceneController {
         if !collided {
             if let sNode = structNode {
                 for node in sNode.childNodes {
-                    node.physicsBody!.setResting(true)
+                    node.physicsBody?.setResting(true)
                 }
             }
         }
