@@ -101,7 +101,7 @@ class ViewController: UIViewController {
      */
     @objc func viewDidTap(recognizer: UITapGestureRecognizer) {
         let tapLoc = recognizer.location(in: sceneView)
-        let hitTestResults = sceneView.hitTest(tapLoc, types: .existingPlaneUsingExtent)
+        let hitTestResults = sceneView.hitTest(tapLoc, types: .existingPlane)
         guard let hitTestRes = hitTestResults.first else {
             return
         }
@@ -179,12 +179,11 @@ class ViewController: UIViewController {
                 self.width = Int(self.view.bounds.width)
                 self.height = Int(self.view.bounds.height)
                 let point = VNImagePointForNormalizedPoint(footPoint, self.width, self.height)
-                let hitTestResults = self.sceneView.hitTest(point, types: .existingPlaneUsingExtent)
+                let hitTestResults = self.sceneView.hitTest(point, types: .existingPlane)
                         guard let hitTestRes = hitTestResults.first else {
                             return
                         }
                         self.footNode.simdTransform = hitTestRes.worldTransform
-                        self.footNode.position.y += 0.05
                         self.footNode.isHidden = false
             }
             
