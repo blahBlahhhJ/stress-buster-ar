@@ -45,8 +45,6 @@ class ViewController: UIViewController {
         // BlurEffect and popup setup
         popUpFadeIn()
         
-        // Richard Note: gonna setup some other lighting system for shadows, 3d rendering etc.
-        
         // AR setup
         sceneController.setupScene(sceneView, contactDelegate: self, footNode: footNode)
         
@@ -180,11 +178,11 @@ class ViewController: UIViewController {
                 self.height = Int(self.view.bounds.height)
                 let point = VNImagePointForNormalizedPoint(footPoint, self.width, self.height)
                 let hitTestResults = self.sceneView.hitTest(point, types: .existingPlane)
-                        guard let hitTestRes = hitTestResults.first else {
-                            return
-                        }
-                        self.footNode.simdTransform = hitTestRes.worldTransform
-                        self.footNode.isHidden = false
+                guard let hitTestRes = hitTestResults.first else {
+                    return
+                }
+                self.footNode.simdTransform = hitTestRes.worldTransform
+                self.footNode.isHidden = false
             }
             
             
