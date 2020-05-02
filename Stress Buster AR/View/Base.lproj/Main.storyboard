@@ -121,7 +121,7 @@
                     <viewLayoutGuide key="safeArea" id="r8C-H3-M90"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="231.65467625899282" y="-269.24460431654677"/>
+            <point key="canvasLocation" x="-1148" y="1004"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="olc-jr-JJJ">
@@ -133,6 +133,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="starting_page_portrait" translatesAutoresizingMaskIntoConstraints="NO" id="Vi0-zW-Sow">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="foot" translatesAutoresizingMaskIntoConstraints="NO" id="2SP-wr-w11">
+                                <rect key="frame" x="0.0" y="68" width="834" height="1112"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S  T  R  E  S  S       B  U  S  T  E  R       A  R" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O99-rg-1Bp">
                                 <rect key="frame" x="217" y="1032" width="400" height="80"/>
@@ -181,10 +184,12 @@
                             <constraint firstItem="7NA-38-Ty5" firstAttribute="centerX" secondItem="4ql-0f-OT1" secondAttribute="centerX" id="Fa0-vt-AJf"/>
                             <constraint firstItem="7NA-38-Ty5" firstAttribute="centerY" secondItem="4ql-0f-OT1" secondAttribute="centerY" id="Jc4-0p-OFU"/>
                             <constraint firstItem="IfY-Ii-iKs" firstAttribute="top" secondItem="X8m-GJ-P6h" secondAttribute="top" constant="20" id="MXJ-Yg-T6p"/>
+                            <constraint firstItem="2SP-wr-w11" firstAttribute="width" secondItem="Vi0-zW-Sow" secondAttribute="width" id="OIO-s2-A87"/>
                             <constraint firstAttribute="bottom" secondItem="Vi0-zW-Sow" secondAttribute="bottom" id="fgJ-Xh-DTD"/>
                             <constraint firstItem="Vi0-zW-Sow" firstAttribute="leading" secondItem="4ql-0f-OT1" secondAttribute="leading" id="hBQ-f8-jJu"/>
                             <constraint firstItem="O99-rg-1Bp" firstAttribute="centerX" secondItem="4ql-0f-OT1" secondAttribute="centerX" id="hUX-Ya-Iw9"/>
                             <constraint firstAttribute="trailing" secondItem="Vi0-zW-Sow" secondAttribute="trailing" id="l2T-kx-zLB"/>
+                            <constraint firstItem="2SP-wr-w11" firstAttribute="height" secondItem="Vi0-zW-Sow" secondAttribute="height" id="nDp-lO-xKZ"/>
                             <constraint firstItem="X8m-GJ-P6h" firstAttribute="bottom" secondItem="O99-rg-1Bp" secondAttribute="bottom" id="r2g-kP-pcc"/>
                             <constraint firstItem="Vi0-zW-Sow" firstAttribute="top" secondItem="4ql-0f-OT1" secondAttribute="top" id="xKc-nx-rGe"/>
                         </constraints>
@@ -192,6 +197,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="Vi0-zW-Sow" id="Evv-2g-eIy"/>
+                        <outlet property="foregroundImageView" destination="2SP-wr-w11" id="5uj-dU-QO0"/>
                         <outlet property="playButton" destination="7NA-38-Ty5" id="naW-Fa-kD7"/>
                         <outlet property="titleLabel" destination="O99-rg-1Bp" id="4aL-So-kRR"/>
                         <segue destination="BV1-FR-VrT" kind="custom" identifier="toGame" customClass="ReplaceSegue" customModule="Stress_Buster_AR" customModuleProvider="target" id="zfV-CF-u72"/>
@@ -281,13 +287,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8oc-o6-SSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="363" y="515"/>
+            <point key="canvasLocation" x="-12" y="1004"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="iwg-Zd-xXh"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="foot" width="1668" height="1972"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="starting_page_portrait" width="1668" height="2388"/>
