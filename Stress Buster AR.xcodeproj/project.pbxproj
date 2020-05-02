@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		79EB8694245869F800F79FBA /* FootDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8684245869F700F79FBA /* FootDetector.swift */; };
-		79EB8695245869F800F79FBA /* FootSeg.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8685245869F700F79FBA /* FootSeg.mlmodel */; };
 		79EB8696245869F800F79FBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79EB8687245869F700F79FBA /* Main.storyboard */; };
 		79EB8698245869F800F79FBA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB868D245869F800F79FBA /* SettingViewController.swift */; };
 		79EB8699245869F800F79FBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB868E245869F800F79FBA /* ViewController.swift */; };
@@ -16,9 +15,12 @@
 		79EB869B245869F800F79FBA /* PlaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8691245869F800F79FBA /* PlaneNode.swift */; };
 		79EB869C245869F800F79FBA /* SpotlightNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8692245869F800F79FBA /* SpotlightNode.swift */; };
 		79EB869D245869F800F79FBA /* FootNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8693245869F800F79FBA /* FootNode.swift */; };
-		79EB869F24586A8E00F79FBA /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB869E24586A8E00F79FBA /* GameModel.swift */; };
 		79EB86A224586C4600F79FBA /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB86A024586B1700F79FBA /* SceneController.swift */; };
 		79EB86A42458735700F79FBA /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 79EB86A32458735700F79FBA /* art.scnassets */; };
+		D42ADE1424590DA1005979C2 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42ADE1324590DA1005979C2 /* Setting.swift */; };
+		D44EFC4D245CB1DA00B1D76B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EFC4C245CB1DA00B1D76B /* StartViewController.swift */; };
+		D44EFC4F245CB3ED00B1D76B /* ReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EFC4E245CB3ED00B1D76B /* ReplaceSegue.swift */; };
+		D4995055245B57AB00A617AC /* FootSeg.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D4995054245B57AB00A617AC /* FootSeg.mlmodel */; };
 		D4BF8C54244CF1E2000AC3D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C53244CF1E2000AC3D9 /* AppDelegate.swift */; };
 		D4BF8C5D244CF1E3000AC3D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BF8C5C244CF1E3000AC3D9 /* Assets.xcassets */; };
 		D4BF8C60244CF1E3000AC3D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BF8C5E244CF1E3000AC3D9 /* LaunchScreen.storyboard */; };
@@ -26,7 +28,6 @@
 
 /* Begin PBXFileReference section */
 		79EB8684245869F700F79FBA /* FootDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootDetector.swift; sourceTree = "<group>"; };
-		79EB8685245869F700F79FBA /* FootSeg.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FootSeg.mlmodel; sourceTree = "<group>"; };
 		79EB8688245869F700F79FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79EB868D245869F800F79FBA /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		79EB868E245869F800F79FBA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,9 +35,12 @@
 		79EB8691245869F800F79FBA /* PlaneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaneNode.swift; sourceTree = "<group>"; };
 		79EB8692245869F800F79FBA /* SpotlightNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightNode.swift; sourceTree = "<group>"; };
 		79EB8693245869F800F79FBA /* FootNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootNode.swift; sourceTree = "<group>"; };
-		79EB869E24586A8E00F79FBA /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		79EB86A024586B1700F79FBA /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
 		79EB86A32458735700F79FBA /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		D42ADE1324590DA1005979C2 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		D44EFC4C245CB1DA00B1D76B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		D44EFC4E245CB3ED00B1D76B /* ReplaceSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceSegue.swift; sourceTree = "<group>"; };
+		D4995054245B57AB00A617AC /* FootSeg.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FootSeg.mlmodel; sourceTree = "<group>"; };
 		D4BF8C50244CF1E2000AC3D9 /* Stress Buster AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stress Buster AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BF8C53244CF1E2000AC3D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4BF8C5C244CF1E3000AC3D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,9 +62,9 @@
 		79EB8683245869F700F79FBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D4995054245B57AB00A617AC /* FootSeg.mlmodel */,
 				79EB8684245869F700F79FBA /* FootDetector.swift */,
-				79EB8685245869F700F79FBA /* FootSeg.mlmodel */,
-				79EB869E24586A8E00F79FBA /* GameModel.swift */,
+				D42ADE1324590DA1005979C2 /* Setting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -76,9 +80,11 @@
 		79EB868C245869F800F79FBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D44EFC4C245CB1DA00B1D76B /* StartViewController.swift */,
+				79EB868E245869F800F79FBA /* ViewController.swift */,
 				79EB868D245869F800F79FBA /* SettingViewController.swift */,
 				79EB86A024586B1700F79FBA /* SceneController.swift */,
-				79EB868E245869F800F79FBA /* ViewController.swift */,
+				D44EFC4E245CB3ED00B1D76B /* ReplaceSegue.swift */,
 				79EB868F245869F800F79FBA /* Nodes */,
 			);
 			path = Controller;
@@ -200,14 +206,16 @@
 			files = (
 				79EB869C245869F800F79FBA /* SpotlightNode.swift in Sources */,
 				79EB869D245869F800F79FBA /* FootNode.swift in Sources */,
+				D42ADE1424590DA1005979C2 /* Setting.swift in Sources */,
 				79EB86A224586C4600F79FBA /* SceneController.swift in Sources */,
+				D44EFC4F245CB3ED00B1D76B /* ReplaceSegue.swift in Sources */,
 				79EB869B245869F800F79FBA /* PlaneNode.swift in Sources */,
+				D44EFC4D245CB1DA00B1D76B /* StartViewController.swift in Sources */,
 				79EB8699245869F800F79FBA /* ViewController.swift in Sources */,
 				79EB8698245869F800F79FBA /* SettingViewController.swift in Sources */,
-				79EB869F24586A8E00F79FBA /* GameModel.swift in Sources */,
 				79EB8694245869F800F79FBA /* FootDetector.swift in Sources */,
-				79EB8695245869F800F79FBA /* FootSeg.mlmodel in Sources */,
 				D4BF8C54244CF1E2000AC3D9 /* AppDelegate.swift in Sources */,
+				D4995055245B57AB00A617AC /* FootSeg.mlmodel in Sources */,
 				79EB869A245869F800F79FBA /* BallNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,14 +361,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6ANCADM7N;
+				DEVELOPMENT_TEAM = HN63PVC5XZ;
 				INFOPLIST_FILE = "Stress Buster AR/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.richardyrh.Stress-Buster-AR";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blah.Stress-Buster-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -372,14 +380,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6ANCADM7N;
+				DEVELOPMENT_TEAM = HN63PVC5XZ;
 				INFOPLIST_FILE = "Stress Buster AR/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.richardyrh.Stress-Buster-AR";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blah.Stress-Buster-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
