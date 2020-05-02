@@ -99,8 +99,8 @@ class ViewController: UIViewController {
         }
         if (testRichard) {
             print("Tappy tappy")
-            //sceneController.addFlyingBall()
-            sceneController.addStaticBall(at: hitTestRes.worldTransform)
+            sceneController.addFlyingBall()
+//            sceneController.addStaticBall(at: hitTestRes.worldTransform)
         } else {
             let ball = BallNode(radius: 0.05)
             ball.simdTransform = hitTestRes.worldTransform

@@ -23,6 +23,7 @@ class SceneController {
     var toBeSettled = Set<SCNNode>()
     var added = false
     var sceneView: ARSCNView!
+    var anchor: ARPlaneAnchor!
     
     func makeLights() -> SCNNode {
         let lightParent = SCNNode()
@@ -40,6 +41,7 @@ class SceneController {
         lightNode.light?.shadowSampleCount = 2
         lightNode.light?.shadowRadius = 8
         //lightNode.light?.shadowMapSize = CGSize(width: 2048, height: 2048)
+        lightNode.light?.categoryBitMask = ~FOOT_MASK
         lightParent.addChildNode(lightNode)
         return lightParent
     }
@@ -54,27 +56,28 @@ class SceneController {
         floor.name = "floor"
         floor.geometry?.materials = [worldGroundMaterial]
         floor.position = SCNVector3(0, 0, 0)
-        floor.physicsBody = .static()
+        let shape = SCNPhysicsShape(shapes: [SCNPhysicsShape(geometry: SCNBox(width:1000, height:0.5, length:1000, chamferRadius: 0))], transforms: [NSValue(scnMatrix4: SCNMatrix4MakeTranslation(0, -0.25, 0))])
+        let floorPhysicsBody = SCNPhysicsBody(type: .static, shape: shape)
+        floor.physicsBody = floorPhysicsBody
         floor.physicsBody?.categoryBitMask = FLOOR_MASK
         floor.physicsBody?.collisionBitMask = -1
         return floor
     }
     
-    
-    
     func setupScene(_ sceneView: ARSCNView, contactDelegate: SCNPhysicsContactDelegate, footNode: SCNNode) {
         self.sceneView = sceneView
         
         let scene = SCNScene(named: "art.scnassets/Environment.scn")!
-        scene.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
+        scene.physicsWorld.gravity = SCNVector3(0, 0, 0)
         sceneView.scene = scene
-        sceneView.scene.physicsWorld.speed = 1
+        sceneView.scene.physicsWorld.speed = 0.5
         sceneView.scene.physicsWorld.contactDelegate = contactDelegate
 
         mainNode = SCNNode()
         mainNode.name = "Main"
 
-        footNode.physicsBody?.mass = 1000
+        footNode.categoryBitMask = FOOT_MASK
+        footNode.physicsBody?.mass = 5
         footNode.physicsBody?.collisionBitMask = BALL_MASK | STRUCT_MASK
         footNode.physicsBody?.categoryBitMask = FOOT_MASK
         footNode.physicsBody?.contactTestBitMask = STRUCT_MASK
@@ -82,6 +85,8 @@ class SceneController {
         ballParent = SCNNode()
         sceneView.scene.rootNode.addChildNode(ballParent)
         sceneView.scene.rootNode.addChildNode(footNode)
+        sceneView.debugOptions = .showPhysicsShapes
+        
         //sceneView.autoenablesDefaultLighting = true
         //sceneView.automaticallyUpdatesLighting = true
     }
@@ -91,15 +96,19 @@ class SceneController {
             return
         }
         added = true
-
+        anchor = planeAnchor
         node.position = SCNVector3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z)
         node.addChildNode(mainNode)
-        print(setting.selectedModel)
-        addStructure(named: setting.selectedModel, at: SCNVector3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z))
+    }
+    
+    func resetStructure(toPosition: SCNVector3) {
+        mainNode.childNode(withName: "struct", recursively: false)?.removeFromParentNode()
+        addStructure(named: setting.selectedModel, at: SCNVector3(anchor.center.x, anchor.center.y, anchor.center.z))
     }
     
     func addStructure(named name: String, at position: SCNVector3 = SCNVector3(0,0,0)) {
         let scene = SCNScene(named: name)!
+        scene.rootNode.name = "struct"
         scene.rootNode.addChildNode(makeFloor())
         scene.rootNode.addChildNode(makeLights())
         mainNode.addChildNode(scene.rootNode)
@@ -108,7 +117,7 @@ class SceneController {
                 childNode.physicsBody?.categoryBitMask = STRUCT_MASK
                 childNode.physicsBody?.collisionBitMask = BALL_MASK | FLOOR_MASK | FOOT_MASK
                 childNode.physicsBody?.contactTestBitMask = BALL_MASK
-                childNode.physicsBody?.isAffectedByGravity = false
+                childNode.physicsBody?.isAffectedByGravity = true
                 childNode.runAction(.move(by: position, duration: 0))
                 toBeSettled.insert(childNode)
             } else{
@@ -181,14 +190,28 @@ class SceneController {
     }
     
     func didContact(_ contact: SCNPhysicsContact) {
+        if (toBeSettled.count == 0) {
+            return
+        }
         let collisionType = contact.nodeA.physicsBody!.categoryBitMask | contact.nodeB.physicsBody!.categoryBitMask
         if (collisionType == BALL_MASK | STRUCT_MASK ||
             collisionType == FOOT_MASK | STRUCT_MASK) {
             let structNode = contact.nodeA.physicsBody!.categoryBitMask == STRUCT_MASK ? contact.nodeA : contact.nodeB
             if toBeSettled.contains(structNode) {
-                structNode.physicsBody?.isAffectedByGravity = true
-                toBeSettled.remove(structNode)
+                /*structNode.physicsBody?.isAffectedByGravity = true
+                toBeSettled.remove(structNode)*/
+                enableGravity()
             }
         }
+    }
+    
+    func enableGravity() {
+        print("here comes gravity")
+        sceneView.scene.physicsWorld.gravity = SCNVector3(0, -4.9, 0)
+        /*for node in toBeSettled {
+            node.physicsBody?.isAffectedByGravity = true
+            toBeSettled.remove(node)
+        }*/
+        toBeSettled.removeAll()
     }
 }
