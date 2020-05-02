@@ -27,6 +27,8 @@ class SettingViewController: UIViewController {
             selectModelSegment.selectedSegmentIndex = 0
         } else if setting.selectedModel == "art.scnassets/Hoover.scn" {
             selectModelSegment.selectedSegmentIndex = 1
+        } else if setting.selectedModel == "art.scnassets/coronavirus.scn" {
+            selectModelSegment.selectedSegmentIndex = 2
         }
         prepareView()
         updatePreview()
@@ -42,6 +44,8 @@ class SettingViewController: UIViewController {
             setting.selectedModel = "art.scnassets/shrek.scn"
         } else if selectModelSegment.selectedSegmentIndex == 1 {
             setting.selectedModel = "art.scnassets/Hoover.scn"
+        } else if selectModelSegment.selectedSegmentIndex == 2 {
+            setting.selectedModel = "art.scnassets/coronavirus.scn"
         }
         updatePreview()
     }
