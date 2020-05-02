@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var debugImageView: UIImageView!
     @IBOutlet var popUpView: UIView!
     @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var tapLabel: UILabel!
     
     var footNode = FootNode()
     let footDetector = FootDetector()
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
     var currentOrientation = CGImagePropertyOrientation.up
     
     var blurEffectOn = true
+    var placingStructure = false
     
     private var width = Int(UIScreen.main.bounds.width)
     private var height = Int(UIScreen.main.bounds.height)
@@ -85,28 +87,36 @@ class ViewController: UIViewController {
     @IBAction func settingButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "toSetting", sender: nil)
     }
+    
+    @IBAction func addButtonPressed(_ sender: Any) {
+        sceneController.clearStructure()
+        placingStructure = true
+        tapLabel.isHidden = false
+    }
+    
     /**
      Listener for tap events.
      Creates a ball node in the tap position.
      Just for test.
      */
     @objc func viewDidTap(recognizer: UITapGestureRecognizer) {
-        let testRichard = true
         let tapLoc = recognizer.location(in: sceneView)
         let hitTestResults = sceneView.hitTest(tapLoc, types: .existingPlaneUsingExtent)
         guard let hitTestRes = hitTestResults.first else {
             return
         }
-        if (testRichard) {
-            print("Tappy tappy")
-            sceneController.addFlyingBall()
-//            sceneController.addStaticBall(at: hitTestRes.worldTransform)
+        if (placingStructure) {
+            let pos = SCNVector3(
+                hitTestRes.localTransform.columns.3.x,
+                hitTestRes.localTransform.columns.3.y,
+                hitTestRes.localTransform.columns.3.z
+            )
+            sceneController.placeStructure(atPosition: pos)
+            placingStructure = false
+            tapLabel.isHidden = true
         } else {
-            let ball = BallNode(radius: 0.05)
-            ball.simdTransform = hitTestRes.worldTransform
-            ball.position.y += 0.05
-            
-            sceneView.scene.rootNode.addChildNode(ball)
+            //sceneController.addFlyingBall()
+            //sceneController.addStaticBall(at: hitTestRes.worldTransform)
         }
     }
     
@@ -228,6 +238,7 @@ extension ViewController: ARSCNViewDelegate {
             popUpFadeOut()
         }
         sceneController.beginAR(anchorAt: planeAnchor, node: node)
+        placingStructure = true
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {

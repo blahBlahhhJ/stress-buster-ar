@@ -19,13 +19,9 @@ class StartViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setBackgroundImg()
-        titleLabel.layer.masksToBounds = true
-        titleLabel.layer.cornerRadius = 10
-        titleLabel.layer.borderWidth = 3
-        titleLabel.layer.borderColor = UIColor.black.cgColor
-        playButton.layer.cornerRadius = 10
-        playButton.layer.borderWidth = 3
-        playButton.layer.borderColor = playButton.currentTitleColor.cgColor
+        playButton.layer.shadowColor = UIColor.black.cgColor
+        playButton.layer.shadowRadius = 8
+        playButton.layer.shadowOpacity = 0.5
         titleFadeIn()
     }
     
@@ -59,6 +55,10 @@ class StartViewController: UIViewController {
                 return
             }
         }
+    }
+    
+    override func didRotate(from: UIInterfaceOrientation) {
+        setBackgroundImg()
     }
     
     @IBAction func settingPressed(_ sender: Any) {

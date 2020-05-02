@@ -21,13 +21,13 @@ class FootNode: SCNNode {
     }
     
     private func commonInit() {
-        let sphere = SCNSphere(radius: 0.10)
+        let cylinder = SCNCylinder(radius: 0.1, height: 0.1)
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.blue.withAlphaComponent(0)
-        geometry = sphere
-        sphere.firstMaterial = material
+        material.diffuse.contents = UIColor.blue.withAlphaComponent(0.5)
+        geometry = cylinder
+        cylinder.firstMaterial = material
         
-        let sphereShape = SCNPhysicsShape(geometry: sphere, options: nil)
-        physicsBody = SCNPhysicsBody(type: .kinematic, shape: sphereShape)
+        let cylinderShape = SCNPhysicsShape(geometry: cylinder, options: nil)
+        physicsBody = SCNPhysicsBody(type: .kinematic, shape: cylinderShape)
     }
 }
