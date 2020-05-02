@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "starting_page_portrait.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
