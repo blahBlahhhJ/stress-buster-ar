@@ -34,7 +34,7 @@ class StartViewController: UIViewController {
         
         titleLabel.center.y += 80
         
-        self.footTrailingConstraint.constant = 0.3 * self.foregroundImageView.bounds.width
+        self.footTrailingConstraint.constant = 0.33 * self.foregroundImageView.bounds.width
         self.foregroundImageView.transform = .init(rotationAngle: -CGFloat.pi / 180 * 8)
         UIView.animate(withDuration: 0.5, animations: {
             self.playButton.alpha = 1
