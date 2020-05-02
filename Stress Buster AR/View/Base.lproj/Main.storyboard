@@ -134,6 +134,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="starting_page_portrait" translatesAutoresizingMaskIntoConstraints="NO" id="Vi0-zW-Sow">
                                 <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foot" translatesAutoresizingMaskIntoConstraints="NO" id="2SP-wr-w11">
+                                <rect key="frame" x="810" y="162" width="688.5" height="918"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S  T  R  E  S  S       B  U  S  T  E  R       A  R" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O99-rg-1Bp">
                                 <rect key="frame" x="205" y="1000" width="400" height="80"/>
                                 <constraints>
@@ -174,9 +177,6 @@
                                     <action selector="playPressed:" destination="n5P-iK-tGX" eventType="touchUpInside" id="njC-UU-yaC"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foot" translatesAutoresizingMaskIntoConstraints="NO" id="2SP-wr-w11">
-                                <rect key="frame" x="810" y="162" width="688.5" height="918"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
