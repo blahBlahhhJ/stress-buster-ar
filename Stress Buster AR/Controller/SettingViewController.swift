@@ -88,7 +88,6 @@ class SettingViewController: UIViewController {
             structNode!.addChildNode(node)
         }
         structNode?.position = SCNVector3(0, 0, 0)
-//        structNode?.scale = SCNVector3(1, 1, 1)
         previewView.scene!.rootNode.addChildNode(structNode!)
     }
 }
@@ -103,7 +102,11 @@ extension SettingViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         if let cell = modelCollectionView.dequeueReusableCell(withReuseIdentifier: "modelCell", for: indexPath) as? ModelCollectionViewCell {
             cell.modelImageView.image = UIImage(named: setting.modelPreviewImgs[index])
-            // Add some cornerRadius maybe? Need to stuck imageView in a UIView and give UIView cornerRadius. I'm too lazy!
+            if (setting.selectedModel == setting.availableModels[index]) {
+                cell.modelImageView.backgroundColor = UIColor.tertiaryLabel
+            } else {
+                cell.modelImageView.backgroundColor = UIColor.secondarySystemBackground
+            }
             return cell
         }
         return ModelCollectionViewCell()
@@ -112,6 +115,7 @@ extension SettingViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let chosenModel = setting.availableModels[indexPath.item]
         setting.selectedModel = chosenModel
+        collectionView.reloadData()
         updatePreview()
     }
 }

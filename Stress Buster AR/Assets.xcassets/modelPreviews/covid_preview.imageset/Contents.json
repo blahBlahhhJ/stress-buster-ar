@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "covid_preview.jpg",
+      "filename" : "Screen Shot 2020-05-03 at 7.13.13 PM.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Screen Shot 2020-05-03 at 7.13.13 PM-1.png",
       "idiom" : "universal"
     }
   ],
