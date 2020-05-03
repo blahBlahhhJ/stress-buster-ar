@@ -113,8 +113,8 @@ class ViewController: UIViewController {
             placingStructure = false
             tapLabel.isHidden = true
         } else {
-            //sceneController.addFlyingBall()
-            sceneController.addStaticBall(at: hitTestRes.worldTransform)
+            sceneController.addFlyingBall()
+//            sceneController.addStaticBall(at: hitTestRes.worldTransform)
         }
     }
     
