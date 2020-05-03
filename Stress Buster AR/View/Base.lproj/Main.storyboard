@@ -257,13 +257,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ooR-oE-C7P">
-                                <rect key="frame" x="520" y="143" width="160" height="32"/>
+                                <rect key="frame" x="512" y="143" width="180" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="azz-tS-euW"/>
+                                    <constraint firstAttribute="width" constant="180" id="azz-tS-euW"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Shrek"/>
                                     <segment title="Hoover"/>
+                                    <segment title="COVID-19"/>
                                 </segments>
                                 <connections>
                                     <action selector="modelSelectionChanged:" destination="CM5-j2-BQ5" eventType="valueChanged" id="STK-1f-vbF"/>
@@ -297,7 +298,7 @@
                             <constraint firstItem="ooR-oE-C7P" firstAttribute="centerY" secondItem="pGn-pF-hkj" secondAttribute="centerY" id="TQb-pk-bL6"/>
                             <constraint firstItem="Iy2-DT-BM8" firstAttribute="top" secondItem="ooR-oE-C7P" secondAttribute="bottom" constant="32" id="U7g-5Q-fO0"/>
                             <constraint firstItem="r9t-3R-eF3" firstAttribute="centerY" secondItem="4gy-B5-lTc" secondAttribute="centerY" id="UuP-yz-Dxp"/>
-                            <constraint firstItem="ApY-pu-crW" firstAttribute="trailing" secondItem="ooR-oE-C7P" secondAttribute="trailing" constant="32" id="Zr9-Nj-YRp"/>
+                            <constraint firstItem="ApY-pu-crW" firstAttribute="trailing" secondItem="ooR-oE-C7P" secondAttribute="trailing" constant="20" id="Zr9-Nj-YRp"/>
                             <constraint firstItem="Iy2-DT-BM8" firstAttribute="leading" secondItem="ApY-pu-crW" secondAttribute="leading" id="cXk-81-krD"/>
                             <constraint firstItem="pGn-pF-hkj" firstAttribute="leading" secondItem="ApY-pu-crW" secondAttribute="leading" constant="32" id="mqx-rB-88K"/>
                         </constraints>

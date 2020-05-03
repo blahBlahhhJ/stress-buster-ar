@@ -114,7 +114,7 @@ class ViewController: UIViewController {
             tapLabel.isHidden = true
         } else {
             //sceneController.addFlyingBall()
-            //sceneController.addStaticBall(at: hitTestRes.worldTransform)
+            sceneController.addStaticBall(at: hitTestRes.worldTransform)
         }
     }
     
