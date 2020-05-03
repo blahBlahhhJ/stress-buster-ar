@@ -17,5 +17,4 @@
 * Checkout code from [this amazing repo](https://github.com/akirasosa/mobile-semantic-segmentation).
 
 ## 4. TODO
-* Upload a better version of the COVID-19 3D model. The one that's on the repo may be buggy.
-
+- [x] Upload a better version of the COVID-19 3D model. The one that's on the repo may be buggy.
