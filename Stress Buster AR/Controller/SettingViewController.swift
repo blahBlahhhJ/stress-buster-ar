@@ -15,21 +15,16 @@ class SettingViewController: UIViewController {
     
     @IBOutlet weak var visualizeAlphaSlider: UISlider!
     
-    @IBOutlet weak var selectModelSegment: UISegmentedControl!
+    @IBOutlet weak var modelCollectionView: UICollectionView!
     
     @IBOutlet weak var previewView: SCNView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        modelCollectionView.delegate = self
+        modelCollectionView.dataSource = self
         visualizeAlphaSlider.value = setting.visualAlpha
         sliderValueLabel.text = "\(round(visualizeAlphaSlider.value * 100) / 100)"
-        if setting.selectedModel == "art.scnassets/shrek.scn" {
-            selectModelSegment.selectedSegmentIndex = 0
-        } else if setting.selectedModel == "art.scnassets/Hoover.scn" {
-            selectModelSegment.selectedSegmentIndex = 1
-        } else if setting.selectedModel == "art.scnassets/coronavirus.scn" {
-            selectModelSegment.selectedSegmentIndex = 2
-        }
         prepareView()
         updatePreview()
     }
@@ -37,17 +32,6 @@ class SettingViewController: UIViewController {
     @IBAction func alphaSliderChanged(_ sender: Any) {
         setting.visualAlpha = visualizeAlphaSlider.value
         sliderValueLabel.text = "\(round(visualizeAlphaSlider.value * 100) / 100)"
-    }
-    
-    @IBAction func modelSelectionChanged(_ sender: Any) {
-        if selectModelSegment.selectedSegmentIndex == 0 {
-            setting.selectedModel = "art.scnassets/shrek.scn"
-        } else if selectModelSegment.selectedSegmentIndex == 1 {
-            setting.selectedModel = "art.scnassets/Hoover.scn"
-        } else if selectModelSegment.selectedSegmentIndex == 2 {
-            setting.selectedModel = "art.scnassets/coronavirus.scn"
-        }
-        updatePreview()
     }
     
     func prepareView() {
@@ -106,5 +90,28 @@ class SettingViewController: UIViewController {
         structNode?.position = SCNVector3(0, 0, 0)
 //        structNode?.scale = SCNVector3(1, 1, 1)
         previewView.scene!.rootNode.addChildNode(structNode!)
+    }
+}
+
+extension SettingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return setting.availableModels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let index = indexPath.item
+        
+        if let cell = modelCollectionView.dequeueReusableCell(withReuseIdentifier: "modelCell", for: indexPath) as? ModelCollectionViewCell {
+            cell.modelImageView.image = UIImage(named: setting.modelPreviewImgs[index])
+            // Add some cornerRadius maybe? Need to stuck imageView in a UIView and give UIView cornerRadius. I'm too lazy!
+            return cell
+        }
+        return ModelCollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let chosenModel = setting.availableModels[indexPath.item]
+        setting.selectedModel = chosenModel
+        updatePreview()
     }
 }
