@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n5P-iK-tGX">
-    <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="dark"/>
+    <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -237,6 +238,9 @@
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visualize detection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gy-B5-lTc">
                                 <rect key="frame" x="32" y="105" width="137" height="19.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19.5" id="hjz-tT-d4N"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -250,26 +254,15 @@
                                     <action selector="alphaSliderChanged:" destination="CM5-j2-BQ5" eventType="valueChanged" id="z8B-m4-ONc"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGn-pF-hkj">
-                                <rect key="frame" x="32" y="148.5" width="113" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Your Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGn-pF-hkj">
+                                <rect key="frame" x="290" y="148.5" width="132" height="19.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19.5" id="VvC-aY-iZa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ooR-oE-C7P">
-                                <rect key="frame" x="512" y="143" width="180" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="azz-tS-euW"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Shrek"/>
-                                    <segment title="Hoover"/>
-                                    <segment title="COVID-19"/>
-                                </segments>
-                                <connections>
-                                    <action selector="modelSelectionChanged:" destination="CM5-j2-BQ5" eventType="valueChanged" id="STK-1f-vbF"/>
-                                </connections>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9t-3R-eF3">
                                 <rect key="frame" x="520" y="105" width="40" height="19.5"/>
                                 <constraints>
@@ -281,40 +274,80 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <sceneKitView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="Environment.scn" allowsCameraControl="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iy2-DT-BM8">
-                                <rect key="frame" x="0.0" y="206" width="712" height="801"/>
+                                <rect key="frame" x="0.0" y="342" width="712" height="665"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </sceneKitView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RsU-If-axm">
+                                <rect key="frame" x="32" y="200" width="648" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hmx-f5-axQ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="modelCell" id="2Jm-Jo-ytG" customClass="ModelCollectionViewCell" customModule="Stress_Buster_AR" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bHl-dC-V6z">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shrek_preview" translatesAutoresizingMaskIntoConstraints="NO" id="zvR-Ex-ml3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="128" id="mAF-cc-uxH"/>
+                                                        <constraint firstAttribute="width" constant="128" id="yNg-m6-BGc"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="zvR-Ex-ml3" secondAttribute="bottom" id="gJM-jU-YGH"/>
+                                                <constraint firstAttribute="trailing" secondItem="zvR-Ex-ml3" secondAttribute="trailing" id="mVI-Es-Sr0"/>
+                                                <constraint firstItem="zvR-Ex-ml3" firstAttribute="leading" secondItem="bHl-dC-V6z" secondAttribute="leading" id="okz-jW-B5g"/>
+                                                <constraint firstItem="zvR-Ex-ml3" firstAttribute="top" secondItem="bHl-dC-V6z" secondAttribute="top" id="q8P-e3-Yxi"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="modelImageView" destination="zvR-Ex-ml3" id="74I-fv-IUc"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="4gy-B5-lTc" firstAttribute="leading" secondItem="ApY-pu-crW" secondAttribute="leading" constant="32" id="41n-W8-Bf6"/>
+                            <constraint firstItem="RsU-If-axm" firstAttribute="leading" secondItem="ApY-pu-crW" secondAttribute="leading" constant="32" id="6Bi-B5-qpI"/>
                             <constraint firstItem="ApY-pu-crW" firstAttribute="trailing" secondItem="zAm-mR-QgW" secondAttribute="trailing" constant="32" id="6v5-nZ-zpp"/>
+                            <constraint firstItem="RsU-If-axm" firstAttribute="top" secondItem="pGn-pF-hkj" secondAttribute="bottom" constant="32" id="Ikg-4z-nfb"/>
                             <constraint firstItem="4gy-B5-lTc" firstAttribute="top" secondItem="ApY-pu-crW" secondAttribute="top" constant="105" id="JNm-Sa-YwS"/>
                             <constraint firstItem="ApY-pu-crW" firstAttribute="trailing" secondItem="Iy2-DT-BM8" secondAttribute="trailing" id="LeH-0v-hm6"/>
+                            <constraint firstItem="ApY-pu-crW" firstAttribute="trailing" secondItem="RsU-If-axm" secondAttribute="trailing" constant="32" id="MXY-cD-Ec4"/>
                             <constraint firstItem="zAm-mR-QgW" firstAttribute="leading" secondItem="r9t-3R-eF3" secondAttribute="trailing" id="NAw-6d-oS6"/>
                             <constraint firstAttribute="bottom" secondItem="Iy2-DT-BM8" secondAttribute="bottom" id="O1o-o8-5UZ"/>
                             <constraint firstItem="pGn-pF-hkj" firstAttribute="top" secondItem="4gy-B5-lTc" secondAttribute="bottom" constant="24" id="Ol8-t0-f7h"/>
+                            <constraint firstItem="Iy2-DT-BM8" firstAttribute="top" secondItem="pGn-pF-hkj" secondAttribute="bottom" constant="174" id="Pdm-AA-ozv"/>
                             <constraint firstItem="zAm-mR-QgW" firstAttribute="centerY" secondItem="4gy-B5-lTc" secondAttribute="centerY" id="R64-XZ-fGl"/>
-                            <constraint firstItem="ooR-oE-C7P" firstAttribute="centerY" secondItem="pGn-pF-hkj" secondAttribute="centerY" id="TQb-pk-bL6"/>
-                            <constraint firstItem="Iy2-DT-BM8" firstAttribute="top" secondItem="ooR-oE-C7P" secondAttribute="bottom" constant="32" id="U7g-5Q-fO0"/>
                             <constraint firstItem="r9t-3R-eF3" firstAttribute="centerY" secondItem="4gy-B5-lTc" secondAttribute="centerY" id="UuP-yz-Dxp"/>
-                            <constraint firstItem="ApY-pu-crW" firstAttribute="trailing" secondItem="ooR-oE-C7P" secondAttribute="trailing" constant="20" id="Zr9-Nj-YRp"/>
+                            <constraint firstItem="Iy2-DT-BM8" firstAttribute="top" secondItem="RsU-If-axm" secondAttribute="bottom" constant="14" id="cDp-YN-chq"/>
                             <constraint firstItem="Iy2-DT-BM8" firstAttribute="leading" secondItem="ApY-pu-crW" secondAttribute="leading" id="cXk-81-krD"/>
-                            <constraint firstItem="pGn-pF-hkj" firstAttribute="leading" secondItem="ApY-pu-crW" secondAttribute="leading" constant="32" id="mqx-rB-88K"/>
+                            <constraint firstItem="pGn-pF-hkj" firstAttribute="centerX" secondItem="d0p-nB-o3Y" secondAttribute="centerX" id="ywd-E6-ClA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ApY-pu-crW"/>
                     </view>
                     <navigationItem key="navigationItem" id="Plj-9U-h5Y"/>
                     <connections>
+                        <outlet property="modelCollectionView" destination="RsU-If-axm" id="rpA-xj-YMk"/>
                         <outlet property="previewView" destination="Iy2-DT-BM8" id="VTa-EB-mvM"/>
-                        <outlet property="selectModelSegment" destination="ooR-oE-C7P" id="nb1-DC-5dd"/>
                         <outlet property="sliderValueLabel" destination="r9t-3R-eF3" id="tbo-CK-Cmo"/>
                         <outlet property="visualizeAlphaSlider" destination="zAm-mR-QgW" id="YLX-Wx-FhV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8oc-o6-SSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13.043478260869566" y="1003.125"/>
+            <point key="canvasLocation" x="-13.333333333333332" y="1002.7777777777777"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -324,6 +357,7 @@
         <image name="foot" width="1592" height="1972"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="shrek_preview" width="760" height="994"/>
         <image name="starting_page_portrait" width="1668" height="2388"/>
     </resources>
 </document>

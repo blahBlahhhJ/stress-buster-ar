@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "shrek_preview.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

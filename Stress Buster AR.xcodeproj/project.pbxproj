@@ -24,6 +24,7 @@
 		D4BF8C54244CF1E2000AC3D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BF8C53244CF1E2000AC3D9 /* AppDelegate.swift */; };
 		D4BF8C5D244CF1E3000AC3D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BF8C5C244CF1E3000AC3D9 /* Assets.xcassets */; };
 		D4BF8C60244CF1E3000AC3D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BF8C5E244CF1E3000AC3D9 /* LaunchScreen.storyboard */; };
+		D4C1933B245EAB31002EDF9B /* ModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C1933A245EAB31002EDF9B /* ModelCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		D4BF8C5C244CF1E3000AC3D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4BF8C5F244CF1E3000AC3D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4BF8C61244CF1E3000AC3D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4C1933A245EAB31002EDF9B /* ModelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				79EB8687245869F700F79FBA /* Main.storyboard */,
+				D4C1933A245EAB31002EDF9B /* ModelCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				79EB8694245869F800F79FBA /* FootDetector.swift in Sources */,
 				D4BF8C54244CF1E2000AC3D9 /* AppDelegate.swift in Sources */,
 				D4995055245B57AB00A617AC /* FootSeg.mlmodel in Sources */,
+				D4C1933B245EAB31002EDF9B /* ModelCollectionViewCell.swift in Sources */,
 				79EB869A245869F800F79FBA /* BallNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
