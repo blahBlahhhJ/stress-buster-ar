@@ -41,7 +41,6 @@ class ViewController: UIViewController {
         sceneView.showsStatistics = false
         sceneView.autoenablesDefaultLighting = true
         sceneView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewDidTap(recognizer:))))
-        
         // BlurEffect and popup setup
         popUpFadeIn()
         

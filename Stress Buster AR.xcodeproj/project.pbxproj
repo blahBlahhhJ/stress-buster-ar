@@ -12,8 +12,6 @@
 		79EB8698245869F800F79FBA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB868D245869F800F79FBA /* SettingViewController.swift */; };
 		79EB8699245869F800F79FBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB868E245869F800F79FBA /* ViewController.swift */; };
 		79EB869A245869F800F79FBA /* BallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8690245869F800F79FBA /* BallNode.swift */; };
-		79EB869B245869F800F79FBA /* PlaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8691245869F800F79FBA /* PlaneNode.swift */; };
-		79EB869C245869F800F79FBA /* SpotlightNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8692245869F800F79FBA /* SpotlightNode.swift */; };
 		79EB869D245869F800F79FBA /* FootNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB8693245869F800F79FBA /* FootNode.swift */; };
 		79EB86A224586C4600F79FBA /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB86A024586B1700F79FBA /* SceneController.swift */; };
 		79EB86A42458735700F79FBA /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 79EB86A32458735700F79FBA /* art.scnassets */; };
@@ -33,8 +31,6 @@
 		79EB868D245869F800F79FBA /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		79EB868E245869F800F79FBA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79EB8690245869F800F79FBA /* BallNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallNode.swift; sourceTree = "<group>"; };
-		79EB8691245869F800F79FBA /* PlaneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaneNode.swift; sourceTree = "<group>"; };
-		79EB8692245869F800F79FBA /* SpotlightNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightNode.swift; sourceTree = "<group>"; };
 		79EB8693245869F800F79FBA /* FootNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootNode.swift; sourceTree = "<group>"; };
 		79EB86A024586B1700F79FBA /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
 		79EB86A32458735700F79FBA /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -97,8 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				79EB8690245869F800F79FBA /* BallNode.swift */,
-				79EB8691245869F800F79FBA /* PlaneNode.swift */,
-				79EB8692245869F800F79FBA /* SpotlightNode.swift */,
 				79EB8693245869F800F79FBA /* FootNode.swift */,
 			);
 			path = Nodes;
@@ -207,12 +201,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79EB869C245869F800F79FBA /* SpotlightNode.swift in Sources */,
 				79EB869D245869F800F79FBA /* FootNode.swift in Sources */,
 				D42ADE1424590DA1005979C2 /* Setting.swift in Sources */,
 				79EB86A224586C4600F79FBA /* SceneController.swift in Sources */,
 				D44EFC4F245CB3ED00B1D76B /* ReplaceSegue.swift in Sources */,
-				79EB869B245869F800F79FBA /* PlaneNode.swift in Sources */,
 				D44EFC4D245CB1DA00B1D76B /* StartViewController.swift in Sources */,
 				79EB8699245869F800F79FBA /* ViewController.swift in Sources */,
 				79EB8698245869F800F79FBA /* SettingViewController.swift in Sources */,
@@ -365,14 +357,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6ANCADM7N;
+				DEVELOPMENT_TEAM = HN63PVC5XZ;
 				INFOPLIST_FILE = "Stress Buster AR/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.richardyrh.Stress-Buster-AR";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blah.Stress-Buster-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -384,14 +376,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6ANCADM7N;
+				DEVELOPMENT_TEAM = HN63PVC5XZ;
 				INFOPLIST_FILE = "Stress Buster AR/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.richardyrh.Stress-Buster-AR";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blah.Stress-Buster-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
